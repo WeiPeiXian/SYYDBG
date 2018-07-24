@@ -25,7 +25,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.LogInCallback;
+import com.avos.avoscloud.im.v2.AVIMClient;
+import com.avos.avoscloud.im.v2.AVIMException;
+import com.avos.avoscloud.im.v2.callback.AVIMClientCallback;
 import com.example.weipeixian.syydbg.BaseActivity;
 import com.example.weipeixian.syydbg.R;
 import com.example.weipeixian.syydbg.util.XmTools;
@@ -157,6 +162,13 @@ public class LoginActivity extends BaseActivity {
 			Toast.makeText(getApplicationContext(), "请输入密码",
 					Toast.LENGTH_SHORT).show();
 		} else {
+			/**************************************************************/
+			//leancloud登录
+
+			/**************************************************************/
+
+			/*****************************************************************/
+			//环换登录
 			EMClient.getInstance().login(userName, password,
 					new EMCallBack() {// 回调
 						@Override
@@ -165,7 +177,6 @@ public class LoginActivity extends BaseActivity {
 								public void run() {
 									//将所有会话导入本地
 									EMClient.getInstance().chatManager().loadAllConversations();//
-
 									Log.d("main", "登陆聊天服务器成功！");
 									Toast.makeText(
 											getApplicationContext(),
@@ -174,7 +185,6 @@ public class LoginActivity extends BaseActivity {
 									startActivity(new Intent(
 											LoginActivity.this,
 											SMSHostActivity.class));
-
 								}
 							});
 						}
@@ -202,7 +212,41 @@ public class LoginActivity extends BaseActivity {
 							});
 						}
 					});
+			/**************************************************************/
+
 		}
+	}
+	public void sendMessageToJerryFromSender(String sender){
+		//登录这个啥鸡儿
+		// Tom 用自己的名字作为clientId，获取AVIMClient对象实例
+		AVIMClient tom = AVIMClient.getInstance(sender);
+		// 与服务器连接
+		tom.open(new AVIMClientCallback() {
+			@Override
+			public void done(AVIMClient client, AVIMException e) {
+				if (e == null) {
+
+				}
+			}
+		});
+	}
+	public void LoginByUser(){
+		AVUser.logInInBackground("username", "password", new LogInCallback<AVUser>() {
+			@Override
+			public void done(AVUser user, AVException e) {
+				if (null != e) {
+					return;
+				}
+				// 与服务器连接
+				AVIMClient client = AVIMClient.getInstance(user);
+				client.open(new AVIMClientCallback() {
+					@Override
+					public void done(final AVIMClient avimClient, AVIMException e) {
+						// do something as you need.
+					}
+				});
+			}
+		});
 	}
 
 }

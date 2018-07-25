@@ -37,9 +37,8 @@ import de.greenrobot.event.EventBus;
 public class LCIMChatItemHolder extends LCIMCommonViewHolder {
 
   protected boolean isLeft;
-
   protected AVIMMessage message;
-  protected ImageView avatarView;
+//  protected ImageView avatarView;
   protected TextView timeView;
   protected TextView nameView;
   protected LinearLayout conventLayout;
@@ -56,7 +55,6 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
 
   public void initView() {
     if (isLeft) {
-      avatarView = (ImageView) itemView.findViewById(R.id.chat_left_iv_avatar);
       timeView = (TextView) itemView.findViewById(R.id.chat_left_tv_time);
       nameView = (TextView) itemView.findViewById(R.id.chat_left_tv_name);
       conventLayout = (LinearLayout) itemView.findViewById(R.id.chat_left_layout_content);
@@ -65,7 +63,7 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
       progressBar = (ProgressBar) itemView.findViewById(R.id.chat_left_progressbar);
       errorView = (ImageView) itemView.findViewById(R.id.chat_left_tv_error);
     } else {
-      avatarView = (ImageView) itemView.findViewById(R.id.chat_right_iv_avatar);
+//      avatarView = (ImageView) itemView.findViewById(R.id.chat_right_iv_avatar);
       timeView = (TextView) itemView.findViewById(R.id.chat_right_tv_time);
       nameView = (TextView) itemView.findViewById(R.id.chat_right_tv_name);
       conventLayout = (LinearLayout) itemView.findViewById(R.id.chat_right_layout_content);
@@ -75,7 +73,7 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
       statusView = (TextView) itemView.findViewById(R.id.chat_right_tv_status);
     }
 
-    setAvatarClickEvent();
+//    setAvatarClickEvent();
     setResendClickEvent();
     setUpdateMessageEvent();
   }
@@ -85,7 +83,6 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
     message = (AVIMMessage) o;
     timeView.setText(millisecsToDateString(message.getTimestamp()));
     nameView.setText("");
-    avatarView.setImageResource(R.drawable.lcim_default_avatar_icon);
     LCIMProfileCache.getInstance().getCachedUser(message.getFrom(), new AVCallback<LCChatKitUser>() {
       @Override
       protected void internalDone0(LCChatKitUser userProfile, AVException e) {
@@ -93,11 +90,6 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
           LCIMLogUtils.logException(e);
         } else if (null != userProfile) {
           nameView.setText(userProfile.getUserName());
-          final String avatarUrl = userProfile.getAvatarUrl();
-          if (!TextUtils.isEmpty(avatarUrl)) {
-            Picasso.with(getContext()).load(avatarUrl)
-              .placeholder(R.drawable.lcim_default_avatar_icon).into(avatarView);
-          }
         }
       }
     });
@@ -130,18 +122,9 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
   }
 
   public void setHolderOption(LCIMChatHolderOption option) {
-    AVIMMessage.AVIMMessageStatus m =null;
-    try {
-      m=message.getMessageStatus();
-    }catch (NullPointerException e){
-      e.printStackTrace();
-    }
-
-
-
     if (null != option && !isLeft &&
-      (AVIMMessage.AVIMMessageStatus.AVIMMessageStatusSent == m ||
-      AVIMMessage.AVIMMessageStatus.AVIMMessageStatusReceipt == m)) {
+      (AVIMMessage.AVIMMessageStatus.AVIMMessageStatusSent == message.getMessageStatus() ||
+      AVIMMessage.AVIMMessageStatus.AVIMMessageStatusReceipt == message.getMessageStatus())) {
       timeView.setVisibility(option.isShowTime() ? View.VISIBLE : View.GONE);
       nameView.setVisibility(option.isShowName() ? View.VISIBLE : View.GONE);
       statusView.setVisibility(option.isShowDelivered() || option.isShowRead() ? View.VISIBLE : View.GONE);
@@ -159,22 +142,22 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
   /**
    * 设置头像点击按钮的事件
    */
-  private void setAvatarClickEvent() {
-    avatarView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        try {
-          Intent intent = new Intent();
-          intent.setPackage(getContext().getPackageName());
-          intent.setAction(LCIMConstants.AVATAR_CLICK_ACTION);
-          intent.addCategory(Intent.CATEGORY_DEFAULT);
-          getContext().startActivity(intent);
-        } catch (ActivityNotFoundException exception) {
-          Log.i(LCIMConstants.LCIM_LOG_TAG, exception.toString());
-        }
-      }
-    });
-  }
+//  private void setAvatarClickEvent() {
+//    avatarView.setOnClickListener(new View.OnClickListener() {
+//      @Override
+//      public void onClick(View v) {
+//        try {
+//          Intent intent = new Intent();
+//          intent.setPackage(getContext().getPackageName());
+//          intent.setAction(LCIMConstants.AVATAR_CLICK_ACTION);
+//          intent.addCategory(Intent.CATEGORY_DEFAULT);
+//          getContext().startActivity(intent);
+//        } catch (ActivityNotFoundException exception) {
+//          Log.i(LCIMConstants.LCIM_LOG_TAG, exception.toString());
+//        }
+//      }
+//    });
+//  }
 
   /**
    * 设置发送失败的叹号按钮的事件

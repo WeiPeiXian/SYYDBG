@@ -14,8 +14,9 @@
     <color name="login_btn_text_color">#48B8B4</color>
     <color name="white">#ffffff</color>
     <!-- 白色 -->
-    <color name="TextColorWhite">#FFFFFFFF</color>
+    <color name="TextColorWhite">#000000</color>
     <color name="whitebg">#7fffffff</color>
+
     <!-- 半透明白色 -->
     <color name="ivory">#fffff0</color>
     <!-- 象牙色 -->

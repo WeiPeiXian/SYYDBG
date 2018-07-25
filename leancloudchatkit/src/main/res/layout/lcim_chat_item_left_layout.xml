@@ -22,18 +22,17 @@
         android:layout_marginRight="20dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/chat_left_iv_avatar"
-            style="@style/LCIMAvatar"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="10dp"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/chat_left_iv_avatar"-->
+            <!--style="@style/LCIMAvatar"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_marginRight="10dp"/>-->
 
         <LinearLayout
             android:id="@+id/chat_left_layout_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/chat_left_iv_avatar"
             android:orientation="horizontal"
             android:paddingRight="40dp"/>
 

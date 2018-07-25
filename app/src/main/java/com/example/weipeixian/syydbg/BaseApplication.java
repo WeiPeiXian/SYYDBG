@@ -1,11 +1,5 @@
 package com.example.weipeixian.syydbg;
-import android.app.ActivityManager;
 import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import android.util.Log;
 
 //import com.easemob.chat.EMChat;
 import com.avos.avoscloud.AVException;
@@ -14,14 +8,7 @@ import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.PushService;
 import com.avos.avoscloud.SaveCallback;
 import com.avos.avoscloud.im.v2.AVIMClient;
-import com.hyphenate.EMMessageListener;
-import com.hyphenate.chat.EMClient;
-import com.example.weipeixian.syydbg.ui.ChatDetailActivity;
-import com.hyphenate.chat.EMConversation;
-import com.hyphenate.chat.EMOptions;
-
-import java.util.Iterator;
-import java.util.List;
+import com.example.weipeixian.syydbg.ui.activity.MainActivity;
 
 import cn.leancloud.chatkit.LCChatKit;
 
@@ -37,7 +24,6 @@ public class BaseApplication extends Application {
         LCChatKit.getInstance().setProfileProvider(CustomUserProvider.getInstance());
         AVOSCloud.setDebugLogEnabled(true);
         LCChatKit.getInstance().init(getApplicationContext(), APP_ID, APP_KEY);
-        AVIMClient.setAutoOpen(true);
         PushService.setDefaultPushCallback(this, MainActivity.class);
         PushService.setAutoWakeUp(true);
         PushService.setDefaultChannelId(this, "default");

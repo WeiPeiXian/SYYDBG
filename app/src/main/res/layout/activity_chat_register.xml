@@ -123,45 +123,7 @@
                 android:background="@color/grey"/>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/height_11_160"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/width_10_160"
-                        android:layout_height="@dimen/width_10_160"
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/register_code_icon"/>
-
-                    <EditText
-                        android:id="@+id/chat_register_code"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#00000000"
-                        android:ems="10"
-                        android:hint="验证码"
-                        android:inputType="text"
-                        android:paddingLeft="@dimen/width_3_160"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"/>
-
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/chat_register_password_code"
-                    android:layout_width="@dimen/width_15_160"
-                    android:layout_height="@dimen/height_11_160"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="5dp"/>
-            </LinearLayout>
         </LinearLayout>
 
         <Button

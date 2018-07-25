@@ -24,34 +24,10 @@ import de.greenrobot.event.EventBus;
  * 当点击相关按钮时发送 InputBottomBarEvent，需要的 View 可以自己去订阅相关消息
  */
 public class LCIMInputBottomBar extends LinearLayout {
-
-
-  /**
-   * 文本输入框
-   */
   private EditText contentEditText;
-
-  /**
-   * 发送文本的Button
-   */
   private View sendTextBtn;
-  /**
-   * 切换到文本输入的 Button
-   */
-
-  /**
-   * 底部的layout，包含 emotionLayout 与 actionLayout
-   */
   private View moreLayout;
-
-  /**
-   * action layout
-   */
   private LinearLayout actionLayout;
-
-  /**
-   * 最小间隔时间为 1 秒，避免多次点击
-   */
   private final int MIN_INTERVAL_SEND_MESSAGE = 1000;
 
   public LCIMInputBottomBar(Context context) {
@@ -61,6 +37,7 @@ public class LCIMInputBottomBar extends LinearLayout {
 
   public LCIMInputBottomBar(Context context, AttributeSet attrs) {
     super(context, attrs);
+
     initView(context);
   }
 
@@ -77,8 +54,7 @@ public class LCIMInputBottomBar extends LinearLayout {
     View.inflate(context, R.layout.lcim_chat_input_bottom_bar_layout, this);
     contentEditText = (EditText) findViewById(R.id.input_bar_et_content);
     sendTextBtn = findViewById(R.id.input_bar_btn_send_text);
-//    keyboardBtn = findViewById(R.id.input_bar_btn_keyboard);
-
+    moreLayout = (LinearLayout) findViewById(R.id.input_bar_layout_more);
     actionLayout = (LinearLayout) findViewById(R.id.input_bar_layout_action);
 
     setEditTextChangeListener();

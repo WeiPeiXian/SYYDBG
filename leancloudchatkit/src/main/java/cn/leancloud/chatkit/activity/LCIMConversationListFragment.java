@@ -30,9 +30,8 @@ import de.greenrobot.event.EventBus;
  * 会话列表页
  */
 public class LCIMConversationListFragment extends Fragment {
-  protected SwipeRefreshLayout refreshLayout;
+  protected SwipeRefreshLayout refreshLayout;//刷新
   protected RecyclerView recyclerView;
-
   protected LCIMCommonListAdapter<AVIMConversation> itemAdapter;
   protected LinearLayoutManager layoutManager;
 
@@ -42,7 +41,6 @@ public class LCIMConversationListFragment extends Fragment {
 
     refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fragment_conversation_srl_pullrefresh);
     recyclerView = (RecyclerView) view.findViewById(R.id.fragment_conversation_srl_view);
-
     refreshLayout.setEnabled(false);
     layoutManager = new LinearLayoutManager(getActivity());
     recyclerView.setLayoutManager(layoutManager);
@@ -50,9 +48,14 @@ public class LCIMConversationListFragment extends Fragment {
     itemAdapter = new LCIMCommonListAdapter<AVIMConversation>(LCIMConversationItemHolder.class);
     recyclerView.setAdapter(itemAdapter);
     EventBus.getDefault().register(this);
+    refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+      @Override
+      public void onRefresh() {
+        updateConversationList();
+      }
+    });
     return view;
   }
-
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
@@ -101,7 +104,6 @@ public class LCIMConversationListFragment extends Fragment {
     for (String convId : convIdList) {
       conversationList.add(LCChatKit.getInstance().getClient().getConversation(convId));
     }
-
     itemAdapter.setDataList(conversationList);
     itemAdapter.notifyDataSetChanged();
   }

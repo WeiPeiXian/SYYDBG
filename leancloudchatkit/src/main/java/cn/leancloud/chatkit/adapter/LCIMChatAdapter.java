@@ -1,6 +1,7 @@
 package cn.leancloud.chatkit.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import com.avos.avoscloud.im.v2.AVIMMessage;
@@ -15,6 +16,7 @@ import cn.leancloud.chatkit.LCChatKit;
 import cn.leancloud.chatkit.viewholder.LCIMChatHolderOption;
 import cn.leancloud.chatkit.viewholder.LCIMChatItemHolder;
 import cn.leancloud.chatkit.viewholder.LCIMChatItemTextHolder;
+import cn.leancloud.chatkit.viewholder.LCIMCommonViewHolder;
 
 /**
  * Created by wli on 15/8/13.
@@ -24,10 +26,15 @@ public class LCIMChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
   private final int ITEM_LEFT = 100;
   private final int ITEM_LEFT_TEXT = 101;
+  private final int ITEM_LEFT_IMAGE = 102;
+  private final int ITEM_LEFT_AUDIO = 103;
+  private final int ITEM_LEFT_LOCATION = 104;
 
   private final int ITEM_RIGHT = 200;
   private final int ITEM_RIGHT_TEXT = 201;
-
+  private final int ITEM_RIGHT_IMAGE = 202;
+  private final int ITEM_RIGHT_AUDIO = 203;
+  private final int ITEM_RIGHT_LOCATION = 204;
 
   private final int ITEM_UNKNOWN = 300;
 
@@ -95,11 +102,21 @@ public class LCIMChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
       case ITEM_LEFT:
       case ITEM_LEFT_TEXT:
         return new LCIMChatItemTextHolder(parent.getContext(), parent, true);
-
+      case ITEM_LEFT_IMAGE:
+//        return new LCIMChatItemImageHolder(parent.getContext(), parent, true);
+      case ITEM_LEFT_AUDIO:
+//        return new LCIMChatItemAudioHolder(parent.getContext(), parent, true);
+      case ITEM_LEFT_LOCATION:
+//        return new LCIMChatItemLocationHolder(parent.getContext(), parent, true);
       case ITEM_RIGHT:
       case ITEM_RIGHT_TEXT:
         return new LCIMChatItemTextHolder(parent.getContext(), parent, false);
-
+      case ITEM_RIGHT_IMAGE:
+//        return new LCIMChatItemImageHolder(parent.getContext(), parent, false);
+      case ITEM_RIGHT_AUDIO:
+//        return new LCIMChatItemAudioHolder(parent.getContext(), parent, false);
+      case ITEM_RIGHT_LOCATION:
+//        return new LCIMChatItemLocationHolder(parent.getContext(), parent, false);
       default:
         return new LCIMChatItemTextHolder(parent.getContext(), parent, true);
     }
@@ -107,10 +124,13 @@ public class LCIMChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
   @Override
   public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    ((LCIMCommonViewHolder)holder).bindData(messageList.get(position));
     if (holder instanceof LCIMChatItemHolder) {
       LCIMChatHolderOption option = new LCIMChatHolderOption();
       option.setShowName(isShowUserName);
-
+      option.setShowTime(shouldShowTime(position));
+      option.setShowDelivered(shouldShowDelivered(position));
+      option.setShowRead(shouldShowRead(position));
       ((LCIMChatItemHolder)holder).setHolderOption(option);
     }
   }
@@ -123,9 +143,13 @@ public class LCIMChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
       boolean isMe = fromMe(typedMessage);
       if (typedMessage.getMessageType() == AVIMReservedMessageType.TextMessageType.getType()) {
         return isMe ? ITEM_RIGHT_TEXT : ITEM_LEFT_TEXT;
-      }
-
-        else {
+      } else if (typedMessage.getMessageType() == AVIMReservedMessageType.AudioMessageType.getType()) {
+        return isMe ? ITEM_RIGHT_AUDIO : ITEM_LEFT_AUDIO;
+      } else if (typedMessage.getMessageType() == AVIMReservedMessageType.ImageMessageType.getType()) {
+        return isMe ? ITEM_RIGHT_IMAGE : ITEM_LEFT_IMAGE;
+      } else if (typedMessage.getMessageType() == AVIMReservedMessageType.LocationMessageType.getType()) {
+        return isMe ? ITEM_RIGHT_LOCATION : ITEM_LEFT_LOCATION;
+      } else {
         return isMe ? ITEM_RIGHT : ITEM_LEFT;
       }
     }
@@ -212,14 +236,14 @@ public class LCIMChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
    */
   public void resetRecycledViewPoolSize(RecyclerView recyclerView) {
     recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_LEFT_TEXT, 25);
-//    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_LEFT_IMAGE, 10);
-//    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_LEFT_AUDIO, 15);
-//    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_LEFT_LOCATION, 10);
+    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_LEFT_IMAGE, 10);
+    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_LEFT_AUDIO, 15);
+    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_LEFT_LOCATION, 10);
 
     recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_RIGHT_TEXT, 25);
-//    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_RIGHT_IMAGE, 10);
-//    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_RIGHT_AUDIO, 15);
-//    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_RIGHT_LOCATION, 10);
+    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_RIGHT_IMAGE, 10);
+    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_RIGHT_AUDIO, 15);
+    recyclerView.getRecycledViewPool().setMaxRecycledViews(ITEM_RIGHT_LOCATION, 10);
   }
 
   /**

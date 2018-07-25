@@ -64,7 +64,6 @@ public class LCIMConversationFragment extends Fragment {
   protected LCIMChatAdapter itemAdapter;
   protected RecyclerView recyclerView;
   protected LinearLayoutManager layoutManager;
-
   /**
    * 负责下拉刷新的 SwipeRefreshLayout
    */
@@ -213,9 +212,7 @@ public class LCIMConversationFragment extends Fragment {
     }
   }
 
-  /**
-   * 重新发送已经发送失败的消息
-   */
+
   public void onEvent(LCIMMessageResendEvent resendEvent) {
     if (null != imConversation && null != resendEvent &&
       null != resendEvent.message && imConversation.getConversationId().equals(resendEvent.message.getConversationId())) {
@@ -313,41 +310,9 @@ public class LCIMConversationFragment extends Fragment {
       });
   }
 
-  /**
-   * 发送 Intent 跳转到系统拍照页面
-   */
-  private void dispatchTakePictureIntent() {
-
-    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-
-      takePictureIntent.putExtra("return-data", false);
-    } else {
-    }
-    if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-      startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-    }
-  }
 
 
-  @Override
-  public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    System.out.println("requestCode=" + requestCode + ", resultCode=" + resultCode);
-    if (Activity.RESULT_OK == resultCode) {
-      switch (requestCode) {
-        case REQUEST_IMAGE_CAPTURE:
-//          sendImage(localCameraPath);
-          break;
-        case REQUEST_IMAGE_PICK:
-          sendImage(getRealPathFromURI(getActivity(), data.getData()));
-          break;
-        default:
-          break;
-      }
-    }
-    super.onActivityResult(requestCode, resultCode, data);
-  }
+
 
   /**
    * 滚动 recyclerView 到底部

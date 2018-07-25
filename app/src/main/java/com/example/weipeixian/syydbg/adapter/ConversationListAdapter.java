@@ -5,8 +5,7 @@ import android.widget.TextView;
 
 import com.example.weipeixian.syydbg.R;
 import com.example.weipeixian.syydbg.model.ConversationListData;
-import com.example.weipeixian.syydbg.util.BaseRecyclerViewAdapter;
-import com.example.weipeixian.syydbg.util.RecyclerHolder;
+import com.example.weipeixian.syydbg.holder.RecyclerHolder;
 
 import java.util.List;
 

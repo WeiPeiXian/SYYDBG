@@ -1,4 +1,4 @@
-package com.example.weipeixian.syydbg.util;
+package com.example.weipeixian.syydbg.holder;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 

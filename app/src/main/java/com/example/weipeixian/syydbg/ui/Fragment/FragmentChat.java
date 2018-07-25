@@ -60,21 +60,13 @@ import cn.leancloud.chatkit.activity.LCIMConversationListFragment;
 import cn.leancloud.chatkit.utils.LCIMConstants;
 
 public class FragmentChat extends BaseFragment {
-    Fragment fragment;
-//    private static  Context context = getActivity();;
-//    private static Logger logger = Logger.getLogger(context.getSimpleName());
-    private static Logger logger = Logger.getLogger("FragmentChat");
-    private ViewPager viewPager;
     private Toolbar toolbar;
-
     private final int BACK_INTERVAL = 1000;
     private Button send;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
-        fragment = new LCIMConversationListFragment();
-
         return view;
     }
 

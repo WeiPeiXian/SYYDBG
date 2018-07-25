@@ -8,8 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_11_160"
         android:background="@color/colorPrimary">
-
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"

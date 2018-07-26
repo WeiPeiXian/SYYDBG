@@ -28,8 +28,12 @@ import com.avos.avoscloud.im.v2.AVIMClient;
 import com.avos.avoscloud.im.v2.AVIMException;
 import com.avos.avoscloud.im.v2.callback.AVIMClientCallback;
 import com.example.weipeixian.syydbg.BaseActivity;
+import com.example.weipeixian.syydbg.PermissionListener;
 import com.example.weipeixian.syydbg.R;
+import com.example.weipeixian.syydbg.ui.Fragment.SMSFragment;
 import com.example.weipeixian.syydbg.util.XmTools;
+
+import java.util.List;
 
 import cn.leancloud.chatkit.LCChatKit;
 
@@ -59,11 +63,11 @@ public class LoginActivity extends BaseActivity {
       if (currentUser != null) {
           if (hasWriteExternalStoragePermission()) {
               login_in_kit();
-              Intent intent = new Intent(LoginActivity.this, open_page.class);
+              Intent intent = new Intent(LoginActivity.this, SMSHostActivity.class);
               startActivity(intent);
           }
           else{
-            applyPermission();
+              requestPermission();
           }
 		}
       mPasswordCB.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -94,7 +98,7 @@ public class LoginActivity extends BaseActivity {
           login();
         }
         else{
-          applyPermission();
+            requestPermission();
         }
       }
 
@@ -118,24 +122,41 @@ public class LoginActivity extends BaseActivity {
     return super.onKeyDown(keyCode, event);
   }
   private boolean hasWriteExternalStoragePermission() {
-    return ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PermissionChecker.PERMISSION_GRANTED;
+      boolean b2 =  ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) == PermissionChecker.PERMISSION_GRANTED;
+      boolean b1 =  ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PermissionChecker.PERMISSION_GRANTED;
+    return b1&&b2;
   }
 
-  private void applyPermission() {
-    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTERNAL_STORAGE);
-  }
-  @Override
-  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-    switch (requestCode) {
-      case REQUEST_WRITE_EXTERNAL_STORAGE:
-        if (grantResults[0] == PermissionChecker.PERMISSION_GRANTED) {
-          login();
-        } else {
-          Log.d("main", "没有权限！");
-        }
-        break;
+    private void requestPermission(){
+        requestRunTimePermission(new String[]{Manifest.permission.READ_SMS, Manifest.permission.WRITE_EXTERNAL_STORAGE}
+                , new PermissionListener() {
+                    @Override
+                    public void onGranted() {  //所有权限授权成功
+                    }
+                    @Override
+                    public void onGranted(List<String> grantedPermission) { //授权失败权限集合
+                    }
+                    @Override
+                    public void onDenied(List<String> deniedPermission) { //授权成功权限集合
+                    }
+                });
     }
-  }
+
+//  private void applyPermission() {
+//    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTERNAL_STORAGE);
+//  }
+//  @Override
+//  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//    switch (requestCode) {
+//      case REQUEST_WRITE_EXTERNAL_STORAGE:
+//        if (grantResults[0] == PermissionChecker.PERMISSION_GRANTED) {
+//          login();
+//        } else {
+//          Log.d("main", "没有权限！");
+//        }
+//        break;
+//    }
+//  }
   public void login() {
     // TODO Auto-generated method stub
     final String userName = mUsernameET.getText().toString().trim();
@@ -161,7 +182,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void done(AVIMClient avimClient, AVIMException e) {
                         if (null == e) {
-                            Intent intent = new Intent(LoginActivity.this, open_page.class);
+                            Intent intent = new Intent(LoginActivity.this, SMSHostActivity.class);
                             startActivity(intent);
                         } else {
                             Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_SHORT).show();

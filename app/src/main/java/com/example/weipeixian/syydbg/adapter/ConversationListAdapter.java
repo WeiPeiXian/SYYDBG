@@ -16,17 +16,13 @@ import java.util.List;
  * Description: TODO
  */
 public class ConversationListAdapter extends BaseRecyclerViewAdapter {
-
-
     public ConversationListAdapter(Context context, List<?> list) {
         super(context, list);
     }
-
     @Override
     public int onCreateViewLayoutID(int viewType) {
         return R.layout.item_conversation_list;
     }
-
     @Override
     public void onBindViewHolder(RecyclerHolder holder, int position) {
         final ConversationListData item = (ConversationListData) list.get(position);
@@ -36,6 +32,5 @@ public class ConversationListAdapter extends BaseRecyclerViewAdapter {
         dateTV.setText(item.getTime());
         contentTV.setText(item.getMessage());
         nameTV.setText(item.getUsername());
-
     }
 }

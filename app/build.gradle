@@ -59,7 +59,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.afollestad.material-dialogs:core:0.9.0.1'
     implementation ('cn.leancloud.android:avoscloud-sdk:v4.6.9')
-//    implementation ('cn.leancloud.android:chatkit:1.0.6')
     implementation project(":leancloudchatkit")
     // 推送与实时聊天需要的包
     implementation ('cn.leancloud.android:avoscloud-push:v4.6.9@aar'){transitive = true}

@@ -10,7 +10,6 @@ public class ConversationListData {
     String username;
     String message;
     String time;
-
 //
     public String getUsername() {
         return username;

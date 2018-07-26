@@ -63,6 +63,7 @@ public class FragmentChat extends BaseFragment {
     private Toolbar toolbar;
     private final int BACK_INTERVAL = 1000;
     private Button send;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

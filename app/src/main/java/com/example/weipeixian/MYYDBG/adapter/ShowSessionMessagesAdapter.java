@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,19 +26,14 @@ public class ShowSessionMessagesAdapter extends BaseAdapter {
      * 所有的短信
      */
     public static final String SMS_URI_ALL = "content://sms/";
-
     private static final String GetMessagesByThreadIdTAG = "Getting messages by thread id";
-
     //存储信息会话中所有来往短信的列表
     List<SmsInfo> infos = new ArrayList<SmsInfo>();
-
-
     //ShowSessionMessagesAdapter初始化构造方法
     public ShowSessionMessagesAdapter(Context context) {
         mContext = context;
         mInflater = LayoutInflater.from(mContext);
     }
-
     /**
      *根据thread_id 检索sms库， 获得该会话包含的信息
      * @param
@@ -205,6 +201,15 @@ public class ShowSessionMessagesAdapter extends BaseAdapter {
                 break;
             case 3:
                 break;
+        }
+        if(convertView==null) {
+            convertView = mInflater.inflate(R.layout.message_session_list_send_item, null);
+            sendMessageHolder = new MessageHolder();
+            sendMessageHolder.setTvDesc((TextView) convertView.findViewById(
+                    R.id.SendSessionMessageTextView));
+            sendMessageHolder.setTvTime((TextView) convertView.findViewById(R.id.time));
+            sendMessageHolder.getTvTime().setText("暂无消息");
+            sendMessageHolder.getTvDesc().setVisibility(View.GONE);
         }
 
         return convertView;

@@ -211,7 +211,6 @@ public class ShowSessionMessagesAdapter extends BaseAdapter {
             sendMessageHolder.getTvTime().setText("暂无消息");
             sendMessageHolder.getTvDesc().setVisibility(View.GONE);
         }
-
         return convertView;
     }
 

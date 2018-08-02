@@ -1,23 +1,23 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-42:12
-INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-42:12
-INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-42:12
-INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-42:12
-INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-42:12
-INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-42:12
-INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-42:12
+ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-35:12
 	package
 		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:2:11-41
 		INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml
 		INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-42:12
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-35:12
 		INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-42:12
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:1-35:12
 		INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:1:11-69
@@ -56,65 +56,49 @@ ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidMani
 	android:name
 		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:10:19-57
 application
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:12:5-40:19
-activity#cn.leancloud.chatkit.activity.LCIMConversationActivity
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:13:9-19:20
-	android:launchMode
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:14:13-44
-	android:name
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:13:19-88
-intent-filter#action:name:cn.leancloud.chatkit.conversation_item_click_action+category:name:android.intent.category.DEFAULT
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:15:13-18:29
-action#cn.leancloud.chatkit.conversation_item_click_action
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:16:17-93
-	android:name
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:16:25-91
-category#android.intent.category.DEFAULT
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:17:17-75
-	android:name
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:17:27-73
+ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:12:5-33:19
 activity#cn.leancloud.chatkit.activity.LCIMImageActivity
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:20:9-83
+ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:13:9-83
 	android:name
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:20:19-81
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:13:19-81
 receiver#com.avos.avoscloud.AVBroadcastReceiver
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:21:9-27:20
+ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:14:9-20:20
 	android:name
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:21:19-72
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:14:19-72
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.USER_PRESENT+action:name:android.net.conn.CONNECTIVITY_CHANGE
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:22:13-26:29
+ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:15:13-19:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:23:17-79
+ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:16:17-79
 	android:name
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:23:25-76
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:16:25-76
 action#android.intent.action.USER_PRESENT
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:24:17-77
+ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:17:17-77
 	android:name
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:24:25-74
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:17:25-74
 action#android.net.conn.CONNECTIVITY_CHANGE
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:25:17-79
+ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:18:17-79
 	android:name
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:25:25-76
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:18:25-76
 provider#android.support.v4.content.FileProvider
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:29:9-38:20
+ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:22:9-31:20
 	android:grantUriPermissions
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:33:13-47
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:26:13-47
 	android:authorities
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:31:13-60
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:24:13-60
 	android:exported
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:32:13-37
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:25:13-37
 	android:name
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:30:13-67
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:23:13-67
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:34:13-37:25
+ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:27:13-30:25
 	android:resource
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:36:17-51
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:29:17-51
 	android:name
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:35:17-67
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:28:17-67
 service#com.avos.avoscloud.PushService
-ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:39:9-66
+ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:32:9-66
 	android:name
-		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:39:18-63
+		ADDED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml:32:18-63
 uses-sdk
 INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\AndroidStudioProjects\SYYDBG\leancloudchatkit\src\main\AndroidManifest.xml

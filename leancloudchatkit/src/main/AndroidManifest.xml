@@ -10,13 +10,6 @@
     <uses-feature android:name="android.hardware.camera"
                   android:required="true" />
     <application>
-        <activity android:name="cn.leancloud.chatkit.activity.LCIMConversationActivity"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="cn.leancloud.chatkit.conversation_item_click_action"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
         <activity android:name="cn.leancloud.chatkit.activity.LCIMImageActivity"/>
         <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
             <intent-filter>

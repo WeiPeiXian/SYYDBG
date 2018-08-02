@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:id="@+id/layout"
+    tools:ignore="InvalidId">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/background2"
+        android:layout_height="?android:attr/actionBarSize">
+        <ImageButton
+            android:id="@+id/return4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="20dip"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="15dip"
+            android:background="@mipmap/back" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@id/return4"
+            android:layout_toLeftOf="@+id/new_phone_message"
+            android:background="@color/background2"
+            android:gravity="center|left"
+            android:text="手机短信"
+            android:textColor="@color/words"
+            android:textSize="20dip" />
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/SessionMessageListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:cacheColorHint="@null"
+        android:scrollbars="vertical"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/height_1_160"
+        android:paddingTop="@dimen/height_1_160">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <EditText
+                android:id="@+id/chat_content"
+                style="@style/lcim_input_bar_edittext_style"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/send"
+                style="@style/lcim_input_bar_button_style"
+                android:src="@drawable/lcim_bottom_bar_send_button_bg"
+                android:visibility="visible"/>
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

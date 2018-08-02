@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/layout"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:id="@+id/layout1">
+        <include layout="@layout/tool_bar"/>
+
+
+    </FrameLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/doc_recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout1"
+        android:layout_above="@+id/main_radio"
+        tools:ignore="UnknownId">
+    </android.support.v7.widget.RecyclerView>
+    <RadioGroup
+        android:background="#e6e6e6"
+        android:id="@+id/main_radio"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height_16_160"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal" >
+        <RadioButton
+            android:id="@+id/radio_me"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawablePadding="2dp"
+            android:drawableTop="@drawable/host_me_rb"
+            android:gravity="center"
+            android:text="个人文档"
+            android:textColor="@color/tab_bottom_text_color"
+            android:textSize="12sp"
+            />
+        <RadioButton
+            android:id="@+id/radio_pub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="2dp"
+            android:drawableTop="@drawable/host_pub_rb"
+            android:gravity="center"
+            android:text="公共文档"
+            android:textColor="@color/tab_bottom_text_color"
+            android:textSize="12sp"
+            />
+        <RadioButton
+            android:id="@+id/radio_do"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="2dp"
+            android:drawableTop="@drawable/host_mb_rb"
+            android:gravity="center"
+            android:text="文档模板"
+            android:textColor="@color/tab_bottom_text_color"
+            android:textSize="12sp"
+            />
+    </RadioGroup>
+
+
+
+
+
+</RelativeLayout>

@@ -12,23 +12,23 @@ public class LCIMConstants {
   }
 
   /**
-   * 参数传递的 key 值，表示对方的 id，跳转到 LCIMConversationActivity 时可以设置
+   * 参数传递的 key 值，表示对方的 id，跳转到  时可以设置
    */
   public static final String PEER_ID = getPrefixConstant("peer_id");
 
   /**
-   * 参数传递的 key 值，表示回话 id，跳转到 LCIMConversationActivity 时可以设置
+   * 参数传递的 key 值，表示回话 id，跳转到  时可以设置
    */
   public static final String CONVERSATION_ID = getPrefixConstant("conversation_id");
 
   /**
-   * LCIMConversationActivity 中头像点击事件发送的 action
+   *  中头像点击事件发送的 action
    */
   public static final String AVATAR_CLICK_ACTION = getPrefixConstant("avatar_click_action");
 
   /**
    * LCIMConversationListFragment item 点击事件
-   * 如果开发者不想跳转到 LCIMConversationActivity，可以在 Mainfest 里接管该事件
+   * 如果开发者不想跳转到 ，可以在 Mainfest 里接管该事件
    */
   public static final String CONVERSATION_ITEM_CLICK_ACTION = getPrefixConstant("conversation_item_click_action");
 

@@ -24,25 +24,19 @@ import java.util.TreeSet;
  * 3、获取的话只从缓存里读取数据
  */
 public class LCIMConversationItemCache {
-
   private final String CONVERSATION_ITEM_TABLE_NAME = "ConversationItem";
-
   private Map<String, LCIMConversationItem> conversationItemMap;
   private LCIMLocalStorage conversationItemDBHelper;
-
   private LCIMConversationItemCache() {
     conversationItemMap = new HashMap<String, LCIMConversationItem>();
   }
-
   private static LCIMConversationItemCache conversationItemCache;
-
   public static synchronized LCIMConversationItemCache getInstance() {
     if (null == conversationItemCache) {
       conversationItemCache = new LCIMConversationItemCache();
     }
     return conversationItemCache;
   }
-
   /**
    * 因为只有在第一次的时候需要设置 Context 以及 clientId，所以单独拎出一个函数主动调用初始化
    * 避免 getInstance 传入过多参数
@@ -94,12 +88,15 @@ public class LCIMConversationItemCache {
 
   /**
    * 获得排序后的 Conversation Id list，根据本地更新时间降序排列
-   *
+   *不改
    * @return
    */
   public synchronized List<String> getSortedConversationList() {
+    //id列表
     List<String> idList = new ArrayList<>();
+    //排序
     SortedSet<LCIMConversationItem> sortedSet = new TreeSet<>();
+    //排序
     sortedSet.addAll(conversationItemMap.values());
     for (LCIMConversationItem item : sortedSet) {
       idList.add(item.conversationId);

@@ -57,7 +57,6 @@ import de.greenrobot.event.EventBus;
  * 将聊天相关的封装到此 Fragment 里边，只需要通过 setConversation 传入 Conversation 即可
  */
 public class LCIMConversationFragment extends Fragment {
-
   private static final int REQUEST_IMAGE_CAPTURE = 1;
   private static final int REQUEST_IMAGE_PICK = 2;
   protected AVIMConversation imConversation;
@@ -78,14 +77,12 @@ public class LCIMConversationFragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.lcim_conversation_fragment, container, false);
-
     recyclerView = (RecyclerView) view.findViewById(R.id.fragment_chat_rv_chat);
     refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fragment_chat_srl_pullrefresh);
     refreshLayout.setEnabled(false);
     inputBottomBar = (LCIMInputBottomBar) view.findViewById(R.id.fragment_chat_inputbottombar);
     layoutManager = new LinearLayoutManager(getActivity());
     recyclerView.setLayoutManager(layoutManager);
-
     itemAdapter = getAdpter();
     itemAdapter.resetRecycledViewPoolSize(recyclerView);
     recyclerView.setAdapter(itemAdapter);
@@ -170,6 +167,7 @@ public class LCIMConversationFragment extends Fragment {
    * 拉取消息，必须加入 conversation 后才能拉取消息
    */
   private void fetchMessages() {
+
     imConversation.queryMessages(new AVIMMessagesQueryCallback() {
       @Override
       public void done(List<AVIMMessage> messageList, AVIMException e) {
@@ -239,7 +237,7 @@ public class LCIMConversationFragment extends Fragment {
     if (null != imConversation && null != event &&
       null != event.message && imConversation.getConversationId().equals(event.message.getConversationId())) {
       AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-      builder.setTitle("操作").setItems(new String[]{"撤回", "修改消息内容"}, new DialogInterface.OnClickListener() {
+      builder.setTitle("操作").setItems(new String[]{"删除", "修改消息内容"}, new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
           if (0 == which) {
@@ -249,6 +247,7 @@ public class LCIMConversationFragment extends Fragment {
           }
         }
       });
+
       builder.create().show();
     }
   }
@@ -289,7 +288,7 @@ public class LCIMConversationFragment extends Fragment {
         if (null == e) {
           itemAdapter.updateMessage(recalledMessage);
         } else {
-          Toast.makeText(getActivity(), "撤回失败", Toast.LENGTH_SHORT).show();
+          Toast.makeText(getActivity(), "删除失败", Toast.LENGTH_SHORT).show();
         }
       }
     });
@@ -321,35 +320,7 @@ public class LCIMConversationFragment extends Fragment {
     layoutManager.scrollToPositionWithOffset(itemAdapter.getItemCount() - 1, 0);
   }
 
-  /**
-   * 根据 Uri 获取文件所在的位置
-   *
-   * @param context
-   * @param contentUri
-   * @return
-   */
-  private String getRealPathFromURI(Context context, Uri contentUri) {
-    if (contentUri.getScheme().equals("file")) {
-      return contentUri.getEncodedPath();
-    } else {
-      Cursor cursor = null;
-      try {
-        String[] proj = {MediaStore.Images.Media.DATA};
-        cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
-        if (null != cursor) {
-          int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-          cursor.moveToFirst();
-          return cursor.getString(column_index);
-        } else {
-          return "";
-        }
-      } finally {
-        if (cursor != null) {
-          cursor.close();
-        }
-      }
-    }
-  }
+
 
   /**
    * 发送文本消息
@@ -360,34 +331,6 @@ public class LCIMConversationFragment extends Fragment {
     AVIMTextMessage message = new AVIMTextMessage();
     message.setText(content);
     sendMessage(message);
-  }
-
-  /**
-   * 发送图片消息
-   * TODO 上传的图片最好要压缩一下
-   *
-   * @param imagePath
-   */
-  protected void sendImage(String imagePath) {
-    try {
-      sendMessage(new AVIMImageMessage(imagePath));
-    } catch (IOException e) {
-      LCIMLogUtils.logException(e);
-    }
-  }
-
-  /**
-   * 发送语音消息
-   *
-   * @param audioPath
-   */
-  protected void sendAudio(String audioPath) {
-    try {
-      AVIMAudioMessage audioMessage = new AVIMAudioMessage(audioPath);
-      sendMessage(audioMessage);
-    } catch (IOException e) {
-      LCIMLogUtils.logException(e);
-    }
   }
 
   public void sendMessage(AVIMMessage message) {

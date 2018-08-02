@@ -2,12 +2,179 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
-    <ListView
+
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="220dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="240dp"
+            android:gravity="center"
+            android:paddingTop="10dip"
+            android:text="绵阳移动办公系统"
+            android:textStyle="bold"
+            android:textColor="@color/words"
+            android:textSize="32dip" />
+
+        <ImageButton
+            android:id="@+id/return3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="15dip"
+            android:background="@mipmap/back"
+            />
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/words"
+        android:layout_gravity="center"
+        >
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lv"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
-    </ListView>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:orientation="vertical"
+            >
+
+            <ImageButton
+                android:id="@+id/bt_sms"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@mipmap/sms"
+                />
+
+            <TextView
+                android:id="@+id/tx_sms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="短信"
+                android:textColor="@color/words"
+                android:layout_marginRight="15dp"
+                />
+
+            <ImageButton
+                android:layout_marginTop="40dp"
+                android:id="@+id/bt_news"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@mipmap/news"
+                />
+
+            <TextView
+                android:id="@+id/tx_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="新闻"
+                android:textColor="@color/words"
+                android:layout_marginRight="15dp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="fill_parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/bt_announcement"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@mipmap/announcement"
+                />
+
+            <TextView
+                android:id="@+id/tx_announcement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="公告"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/words" />
+
+            <ImageButton
+                android:layout_marginTop="40dp"
+                android:id="@+id/bt_document"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@mipmap/document"
+                />
+
+            <TextView
+                android:id="@+id/tx_document"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="文档"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/words" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="fill_parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/bt_contact"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@mipmap/contacts"
+                />
+
+            <TextView
+                android:id="@+id/tx_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通讯录"
+                android:textColor="@color/words"
+                android:layout_marginLeft="10dp"
+                />
+
+            <ImageButton
+                android:layout_marginTop="40dp"
+                android:id="@+id/bt_order"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@mipmap/process"
+                />
+
+            <TextView
+                android:id="@+id/tx_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="流程"
+                android:textColor="@color/words"
+                android:layout_marginLeft="15dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

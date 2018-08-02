@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.example.weipeixian.syydbg"
+        applicationId "com.example.weipeixian.MYYDBG"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
@@ -21,10 +21,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            ndk {
-                //增加这个主要是限制只能有这几个so库的文件夹，否则莫名其妙出现其它的文件夹导致报错
-                abiFilters "armeabi", "armeabi-v7a", "x86","arm64-v8a"
-            }
         }
         debug {
             ndk {
@@ -44,7 +40,10 @@ dependencies {
     configurations {
         all*.exclude group: 'com.android.support', module: 'support-v13'
     }
-//    }
+
+    implementation 'com.jakewharton:butterknife:8.0.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'

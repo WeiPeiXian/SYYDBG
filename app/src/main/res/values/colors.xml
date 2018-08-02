@@ -10,7 +10,11 @@
     <color name="colorPrimaryDark">#006400</color>
     <color name="colorAccent">#48B8B4</color>
     <!-- materialDialog 按钮颜色 -->
-
+    <color name="button">#F76968</color>
+    <color name="inputwords">#CCCCCC</color>
+    <color name="words">#000000</color>
+    <color name="background2">#F2F2F2</color>
+    <color name="words2">#A9A9A9</color>
     <color name="login_btn_text_color">#48B8B4</color>
     <color name="white">#ffffff</color>
     <!-- 白色 -->

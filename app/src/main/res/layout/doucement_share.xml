@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/layout1">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:background="@color/background2"
+            android:gravity="center"
+            android:paddingTop="10dip"
+            android:text="文档分享"
+            android:textColor="@color/words"
+            android:textSize="25dip" />
+
+        <ImageButton
+            android:id="@+id/return6"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="15dip"
+            android:background="@color/background2"
+            android:src="@mipmap/back" />
+    </FrameLayout>
+    <TextView
+        android:id="@+id/tx"
+        android:layout_below="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="添加联系人"
+        android:textSize="28dp"
+        android:textColor="@color/black"/>
+    <EditText
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="5dip"
+        android:layout_below="@+id/tx"
+        android:background="@drawable/shape"
+        android:drawableLeft="@mipmap/search"
+        android:drawablePadding="10dp"
+        android:hint="搜索"
+        android:singleLine="true"
+        android:textSize="20dp" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@color/button"
+        android:text="立即分享"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+</RelativeLayout>

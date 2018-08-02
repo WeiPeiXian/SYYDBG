@@ -25,11 +25,9 @@ import cn.leancloud.chatkit.handler.LCIMMessageHandler;
  * LeanCloudChatKit 的管理类
  */
 public final class LCChatKit {
-
   private static LCChatKit lcChatKit;
   private LCChatProfileProvider profileProvider;
   private String currentUserId;
-
   private LCChatKit() {
   }
 
@@ -138,7 +136,6 @@ public final class LCChatKit {
         }
       }
     };
-
     if (AVUtils.isBlankContent(tag)) {
       AVIMClient.getInstance(userId).open(openCallback);
     } else {

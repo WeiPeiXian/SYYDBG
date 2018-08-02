@@ -8,17 +8,14 @@ public final class LCChatKitUser {
   private String userId;
   private String avatarUrl;
   private String name;
-
   public LCChatKitUser(String userId, String userName, String avatarUrl) {
     this.userId = userId;
     this.avatarUrl = avatarUrl;
     this.name = userName;
   }
-
   public String getUserId() {
     return userId;
   }
-
   public String getAvatarUrl() {
     return avatarUrl;
   }

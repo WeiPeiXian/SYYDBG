@@ -15,17 +15,12 @@ import cn.leancloud.chatkit.viewholder.LCIMCommonViewHolder;
  * 单类型 item 的 RecyclerView 对应的 Adapter
  */
 public class LCIMCommonListAdapter<T> extends RecyclerView.Adapter<LCIMCommonViewHolder> {
-
   private static HashMap<String, LCIMCommonViewHolder.ViewHolderCreator> creatorHashMap = new HashMap<>();
-
   private Class<?> vhClass;
-
   protected List<T> dataList = new ArrayList<T>();
-
   public LCIMCommonListAdapter() {
     super();
   }
-
   public LCIMCommonListAdapter(Class<?> vhClass) {
     this.vhClass = vhClass;
   }
@@ -69,7 +64,6 @@ public class LCIMCommonListAdapter<T> extends RecyclerView.Adapter<LCIMCommonVie
         LCIMLogUtils.logException(e);
       }
     }
-
     LCIMCommonViewHolder.ViewHolderCreator<?> creator = null;
     if (creatorHashMap.containsKey(vhClass.getName())) {
       creator = creatorHashMap.get(vhClass.getName());

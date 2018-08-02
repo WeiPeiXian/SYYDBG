@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.weipeixian.syydbg">
+    package="com.example.weipeixian.MYYDBG">
 
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <receiver android:name="com.example.weipeixian.syydbg.util.SmsReceiver" >
+        <receiver android:name="com.example.weipeixian.MYYDBG.util.SmsReceiver" >
             <intent-filter android:priority="999">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
@@ -37,8 +37,44 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.weipeixian.MYYDBG.ui.activity.conversation"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="cn.leancloud.chatkit.conversation_item_click_action"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.activity.RegisterActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.ShowSessionMessagesActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.document"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.contacts"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.announcement"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.process"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.send_message"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
         </activity>
@@ -58,12 +94,12 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".ui.activity.MainActivity"
-            android:label="@string/app_name"
-            android:windowSoftInputMode="adjustPan" >
+            android:name="com.avos.avoscloud.feedback.ThreadActivity" >
         </activity>
         <activity
-            android:name="com.avos.avoscloud.feedback.ThreadActivity" >
+            android:name=".ui.activity.news"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
         </activity>
     </application>
 

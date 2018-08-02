@@ -1,9 +1,14 @@
 package cn.leancloud.chatkit.utils;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.avos.avoscloud.AVCallback;
 import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.FindCallback;
 import com.avos.avoscloud.im.v2.AVIMConversation;
 
 import java.util.ArrayList;
@@ -18,52 +23,50 @@ import cn.leancloud.chatkit.cache.LCIMProfileCache;
  * 和 Conversation 相关的 Util 类
  */
 public class LCIMConversationUtils {
-
-  /**
-   * 获取会话名称
-   * 优先级：
-   * 1、AVIMConersation name 属性
-   * 2、单聊：对方用户名
-   * 群聊：成员用户名合并
-   *
-   * @param conversation
-   * @param callback
-   */
-  public static void getConversationName(final AVIMConversation conversation, final AVCallback<String> callback) {
-    if (null == callback) {
-      return;
-    }
-    if (null == conversation) {
-      callback.internalDone(null, new AVException(new Throwable("conversation can not be null!")));
-      return;
-    }
-    if (conversation.isTemporary()) {
-      callback.internalDone(conversation.getName(), null);
-    } else if (conversation.isTransient()) {
-      callback.internalDone(conversation.getName(), null);
-    } else if (2 == conversation.getMembers().size()) {
-      String peerId = getConversationPeerId(conversation);
-      LCIMProfileCache.getInstance().getUserName(peerId, callback);
-    } else {
-      if (!TextUtils.isEmpty(conversation.getName())) {
-        callback.internalDone(conversation.getName(), null);
-      } else {
-        LCIMProfileCache.getInstance().getCachedUsers(conversation.getMembers(), new AVCallback<List<LCChatKitUser>>() {
-          @Override
-          protected void internalDone0(List<LCChatKitUser> lcimUserProfiles, AVException e) {
-            List<String> nameList = new ArrayList<String>();
-            if (null != lcimUserProfiles) {
-              for (LCChatKitUser userProfile : lcimUserProfiles) {
-                nameList.add(userProfile.getUserName());
-              }
-            }
-            callback.internalDone(TextUtils.join(",", nameList), e);
-          }
-        });
+  public static String  getConversationName(final AVIMConversation conversation){
+    AVUser currentUser = AVUser.getCurrentUser();
+    String name = currentUser.getUsername();
+    int length  =  conversation.getMembers().size();
+    Log.d("ss",conversation.getMembers().toString());
+    if(length == 2){
+      String members[] = new String[2];
+      List<String> mem = conversation.getMembers();
+      members[0] = mem.get(0);
+      members[1] = mem.get(1);
+      if (name.equals(members[0]) ){
+        name = members[1];
+      }
+      else{
+        name = members[0];
       }
     }
+    return name;
   }
+  public static String get(final String s){
+    //从通讯录获取名字
+    final String[] name = new String[1];
+    AVQuery<AVUser> userQuery = new AVQuery<>("_User");
+    userQuery.whereEqualTo("username",s);
+    userQuery.findInBackground(new FindCallback<AVUser>() {
+      @Override
+      public void done(List<AVUser> list, AVException e) {
+        if (e==null){
+          AVUser user =list.get(0);
+          String n =user.getString("name");
+          if (n!=null){
+            name[0] = n;
+          }
+          else
+            name[0] = s;
+        }
+        else {
+          Log.d("ds",e.getMessage());
 
+        }
+      }
+    });
+    return name[0];
+  }
   /**
    * 获取单聊会话的 icon
    * 单聊：对方用户的头像

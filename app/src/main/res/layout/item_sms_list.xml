@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="48dp"
+    xmlns:ellipsize="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingTop="@dimen/width_3_160">
 
@@ -21,20 +22,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:text="欢迎您再次回到XM"
             android:id="@+id/sms_message_iv"
             android:layout_marginTop="@dimen/height_1_160"
+            android:maxLines="2"
+            android:ellipsize = "end"
             android:textColor="@color/grey"
             android:layout_marginRight="@dimen/width_3_160"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="40sp"/>
     </LinearLayout>
 
     <TextView
         android:id="@+id/sms_time_iv"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="10:21"
         android:textColor="@color/grey"
         android:layout_marginRight="@dimen/width_3_160"
         android:layout_width="wrap_content"

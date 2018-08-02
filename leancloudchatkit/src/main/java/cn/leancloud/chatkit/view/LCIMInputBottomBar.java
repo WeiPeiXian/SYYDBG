@@ -78,7 +78,6 @@ public class LCIMInputBottomBar extends LinearLayout {
           Toast.makeText(getContext(), R.string.lcim_message_is_null, Toast.LENGTH_SHORT).show();
           return;
         }
-
         contentEditText.setText("");
         new Handler().postDelayed(new Runnable() {
           @Override

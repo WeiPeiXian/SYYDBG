@@ -26,50 +26,38 @@ import cn.leancloud.chatkit.utils.LCIMLogUtils;
  * 因为最终读与写的操作都是在 readDbThread 线程中进行，所以不需要考虑线程安全问题
  */
 class LCIMLocalStorage extends SQLiteOpenHelper {
-
   /**
    * db 的名字，加前缀避免与用户自己的逻辑冲突
    */
   private static final String DB_NAME_PREFIX = "LeanCloudChatKit_DB";
-
   /**
    * 具体 id 的 key，文本、主键、不能为空
    */
   private static final String TABLE_KEY_ID = "id";
-
   /**
    * 具体内容的 key，文本（非文本的可以通过转化成 json 存进来）
    */
   private static final String TABLE_KEY_CONTENT = "content";
-
   private static final String SQL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS %s(" +
     TABLE_KEY_ID + " TEXT PRIMARY KEY NOT NULL, " +
     TABLE_KEY_CONTENT + " TEXT " +
     ")";
   private static final String SQL_DROP_TABLE = "DROP TABLE IF EXISTS %s";
-
   private static final int DB_VERSION = 1;
-
   private String tableName;
-
   private HandlerThread readDbThread;
   private Handler readDbHandler;
-
   public LCIMLocalStorage(Context context, String clientId, String tableName) {
     super(context, DB_NAME_PREFIX, null, DB_VERSION);
-
     if (TextUtils.isEmpty(tableName)) {
       throw new IllegalArgumentException("tableName can not be null");
     }
     if (TextUtils.isEmpty(clientId)) {
       throw new IllegalArgumentException("clientId can not be null");
     }
-
     final String md5ClientId = AVUtils.md5(clientId);
     this.tableName = tableName + "_" + md5ClientId;
-
     createTable();
-
     readDbThread = new HandlerThread("LCIMLocalStorageReadThread");
     readDbThread.start();
     readDbHandler = new Handler(readDbThread.getLooper());

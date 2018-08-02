@@ -20,16 +20,13 @@ import de.greenrobot.event.EventBus;
  * 关于回调会何时执行可以参见 https://leancloud.cn/docs/realtime_guide-android.html#添加其他成员
  */
 public class LCIMConversationHandler extends AVIMConversationEventHandler {
-
   private static LCIMConversationHandler eventHandler;
-
   public static synchronized LCIMConversationHandler getInstance() {
     if (null == eventHandler) {
       eventHandler = new LCIMConversationHandler();
     }
     return eventHandler;
   }
-
   private LCIMConversationHandler() {
   }
 

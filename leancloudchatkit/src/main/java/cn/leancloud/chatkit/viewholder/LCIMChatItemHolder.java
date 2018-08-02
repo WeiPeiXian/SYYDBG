@@ -18,7 +18,9 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.im.v2.AVIMMessage;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import cn.leancloud.chatkit.LCChatKitUser;
@@ -35,10 +37,8 @@ import de.greenrobot.event.EventBus;
  * 聊天 item 的 holder
  */
 public class LCIMChatItemHolder extends LCIMCommonViewHolder {
-
   protected boolean isLeft;
   protected AVIMMessage message;
-//  protected ImageView avatarView;
   protected TextView timeView;
   protected TextView nameView;
   protected LinearLayout conventLayout;
@@ -187,8 +187,23 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
 
   //TODO 展示更人性一点
   private static String millisecsToDateString(long timestamp) {
+
     SimpleDateFormat format = new SimpleDateFormat("MM-dd HH:mm");
-    return format.format(new Date(timestamp));
+    Date date = new Date(timestamp);
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTime(date);
+    calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR));
+    Date date1 =calendar.getTime();
+    return format.format(date1);
+  }
+  public static void UTCToCST(String UTCStr, String format) throws ParseException {
+    Date date = null;
+    SimpleDateFormat sdf = new SimpleDateFormat(format);
+    date = sdf.parse(UTCStr);
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTime(date);
+    calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) + 8);
+    System.out.println("北京时间: " + calendar.getTime());
   }
 }
 

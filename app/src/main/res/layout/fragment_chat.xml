@@ -8,12 +8,17 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_11_160"
         android:background="@color/colorPrimary">
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true">
+        </Spinner>
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="短信"
+            android:text="内部短信"
             android:textColor="@color/white"
             android:textSize="16sp"
             />
@@ -35,7 +40,7 @@
             android:cacheColorHint="@null"
             android:scrollbars="vertical"
             android:id="@+id/conversation_fragment"
-            android:name="cn.leancloud.chatkit.activity.LCIMConversationListFragment"
+            android:name="com.example.weipeixian.MYYDBG.ui.Fragment.LCIMConversationListFragment"
             ></fragment>
     </FrameLayout>
 

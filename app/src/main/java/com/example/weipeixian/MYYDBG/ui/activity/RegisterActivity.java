@@ -41,13 +41,11 @@ public class RegisterActivity extends BaseActivity {
     private Button mSignupBtn;
     private Handler mHandler;
     private ImageView mBackTV;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
-
         mHandler = new Handler() {
             public void handleMessage(Message msg) {
                 switch (msg.what) {
@@ -123,7 +121,6 @@ public class RegisterActivity extends BaseActivity {
                                 @Override
                                 public void done(AVException e) {
                                     if (e == null) {
-//										Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT);
                                         mHandler.sendEmptyMessage(1000);
                                         login(userName,password);
                                     } else {

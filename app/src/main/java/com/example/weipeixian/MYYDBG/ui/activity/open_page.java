@@ -3,15 +3,10 @@ package com.example.weipeixian.MYYDBG.ui.activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatImageButton;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
 
 import com.example.weipeixian.MYYDBG.BaseActivity;
 import com.example.weipeixian.MYYDBG.R;
@@ -19,9 +14,8 @@ import com.example.weipeixian.MYYDBG.util.XmTools;
 
 public class open_page extends BaseActivity{
     private ImageButton[] buttons = new ImageButton[6];
-    private String[] data = { "SMS", "contacts", "announcement", "news",
+    private String[] data = { "SMS", "contacts", "NoticeList", "news",
             "document", "请假流程","退出" };
-
     @SuppressLint("WrongViewCast")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +30,7 @@ public class open_page extends BaseActivity{
         final Intent[] it = new Intent[6];
         it[0] =new Intent(open_page.this,SMSHostActivity.class);
         it[1] =new Intent(open_page.this,contacts.class);
-        it[2] =new Intent(open_page.this,announcement.class);
+        it[2] =new Intent(open_page.this,NoticeList.class);
         it[3] =new Intent(open_page.this,news.class);
         it[4] =new Intent(open_page.this,document.class);
         it[5] =new Intent(open_page.this,process.class);

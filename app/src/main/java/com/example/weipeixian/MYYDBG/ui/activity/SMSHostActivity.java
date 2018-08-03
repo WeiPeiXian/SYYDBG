@@ -56,18 +56,6 @@ public class SMSHostActivity extends FragmentActivity {
                 }
             }
         });
-//        changeImageSize();
     }
 
-    private void changeImageSize() {
-        RadioButton m = (RadioButton)findViewById(R.id.radio_phone);
-        RadioButton s = (RadioButton)findViewById(R.id.radio_chat);
-        //定义底部标签图片大小
-        Drawable drawableFirst = getResources().getDrawable(R.drawable.host_phone_rb);
-        drawableFirst.setBounds(0, 0, 69, 69);//第一0是距左右边距离，第二0是距上下边距离，第三69长度,第四宽度
-        m.setCompoundDrawables(null, drawableFirst, null, null);//只放上面
-        Drawable drawableMe = getResources().getDrawable(R.drawable.host_message_rb);
-        drawableMe.setBounds(0, 0, 69, 69);//第一0是距左右边距离，第二0是距上下边距离，第三69长度,第四宽度
-        s.setCompoundDrawables(null, drawableMe, null, null);//只放上面
-    }
 }

@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.ContactsContract;
+import android.provider.Settings;
 import android.provider.Telephony;
 import android.provider.Telephony.Threads;
 import android.renderscript.Allocation;
@@ -319,7 +320,7 @@ public class SMSFragment extends BaseFragment{
                      */
                     contact = getContactFromPhoneNum(mContext, phoneAndUnread[0]);
                     //获得最后的未读短信与已读短信
-                    //String final_count="("+phoneAndUnread[1]+"/"+count_mms+")";
+//                    String final_count="("+phoneAndUnread[1]+"/"+count_mms+")";
                     //将会话信息添加到信息列表中
                     //判断是否联系人，若为联系人显示其名称，若不是则显示号码
                     if (contact.getContactName().equals("")){
@@ -340,11 +341,15 @@ public class SMSFragment extends BaseFragment{
                         smsinfo.setType(type);
                         smsinfo.setMessageCout(count_mms);
                         cursorCanonicalAddress.close();
-
                     }
                     else {
                         smsinfo.setDate(date_mms);
-                        smsinfo.setMessage(last_mms);
+                        System.out.println(type+"="+last_mms);
+                        if (type.equals("3")){
+                            smsinfo.setMessage("<font color='#ff0000'>[草稿]</font>"+last_mms);
+                        }
+                        else
+                            smsinfo.setMessage(last_mms);
                         smsinfo.setType(type);
                         smsinfo.setMessageCout(count_mms);
                     }
@@ -360,7 +365,6 @@ public class SMSFragment extends BaseFragment{
             Log.e(ThreadTAG,"E:" + e.toString());
         }finally{
             if (sessionCursor != null){
-                Log.d("会话","获取成功");
                 sessionCursor.close();
                 sessionCursor = null;
             }

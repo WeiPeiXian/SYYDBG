@@ -25,6 +25,4 @@
             android:textSize="20sp"
             android:background="@drawable/lcim_chat_item_right_bg" />
     </LinearLayout>
-
-    <!-- powderblue：粉蓝色 -->
 </RelativeLayout>

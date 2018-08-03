@@ -31,7 +31,11 @@ public class SmsListAdapter extends BaseRecyclerViewAdapter {
         TextView contentTV = holder.getTextView(R.id.sms_message_iv);
         TextView nameTV = holder.getTextView(R.id.sms_name_iv);
         dateTV.setText(item.getDate());
-        contentTV.setText(Html.fromHtml(item.getMessage()));
+        try {
+            contentTV.setText(Html.fromHtml(item.getMessage()));
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
         nameTV.setText(item.getContactMes());
     }
 }

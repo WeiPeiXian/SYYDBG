@@ -2,13 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="220dp">
-
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="240dp"
@@ -20,16 +18,15 @@
             android:textSize="32dip" />
 
         <ImageButton
-            android:id="@+id/return3"
+            android:id="@+id/new_phone_message"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dip"
-            android:layout_marginRight="20dip"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="18dp"
             android:layout_marginTop="15dip"
-            android:background="@mipmap/back"
-            />
-
-    </FrameLayout>
+            android:background="@mipmap/shezhi" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="350dp"
@@ -52,23 +49,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/bt_sms"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="@mipmap/sms"
+                android:background="@mipmap/message2"
                 />
 
             <TextView
                 android:id="@+id/tx_sms"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="短信"
+                android:text="短信管理"
                 android:textColor="@color/words"
-                android:layout_marginRight="15dp"
                 />
 
             <ImageButton
@@ -81,12 +76,10 @@
 
             <TextView
                 android:id="@+id/tx_news"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="新闻"
-                android:textColor="@color/words"
-                android:layout_marginRight="15dp"
-                />
+                android:text="新闻管理"
+                android:textColor="@color/words" />
         </LinearLayout>
 
         <View
@@ -104,15 +97,14 @@
                 android:id="@+id/bt_announcement"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="@mipmap/announcement"
+                android:background="@mipmap/annoucement"
                 />
 
             <TextView
                 android:id="@+id/tx_announcement"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="公告"
-                android:layout_gravity="center_horizontal"
+                android:text="公告管理"
                 android:textColor="@color/words" />
 
             <ImageButton
@@ -125,10 +117,9 @@
 
             <TextView
                 android:id="@+id/tx_document"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="文档"
-                android:layout_gravity="center_horizontal"
+                android:text="文档管理"
                 android:textColor="@color/words" />
         </LinearLayout>
 
@@ -147,34 +138,30 @@
                 android:id="@+id/bt_contact"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="@mipmap/contacts"
+                android:background="@mipmap/address"
                 />
 
             <TextView
                 android:id="@+id/tx_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="通讯录"
-                android:textColor="@color/words"
-                android:layout_marginLeft="10dp"
-                />
+                android:text="通讯录管理"
+                android:textColor="@color/words" />
 
             <ImageButton
                 android:layout_marginTop="40dp"
                 android:id="@+id/bt_order"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="@mipmap/process"
+                android:background="@mipmap/flow"
                 />
 
             <TextView
                 android:id="@+id/tx_order"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="流程"
-                android:textColor="@color/words"
-                android:layout_marginLeft="15dp"
-                />
+                android:text="流程管理"
+                android:textColor="@color/words" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

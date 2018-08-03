@@ -5,18 +5,24 @@
     <color name="common_tab_bg_light_grey">#D9DCE1</color>
     <color name="light_black">#EE000000</color>
     <!-- 选择图片对话框背景颜色 -->
-
-    <color name="colorPrimary">#2B9056</color>
-    <color name="colorPrimaryDark">#006400</color>
-    <color name="colorAccent">#48B8B4</color>
-    <!-- materialDialog 按钮颜色 -->
-    <color name="button">#F76968</color>
+    <color name="white">#FFFFFF</color>
+    <color name="button">#50C8FF</color>
     <color name="inputwords">#CCCCCC</color>
     <color name="words">#000000</color>
     <color name="background2">#F2F2F2</color>
     <color name="words2">#A9A9A9</color>
+    <color name="gray_blue">#666e9d</color>
+    <color name="colorPrimary">#F76968</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="title_blue">#40CCFF</color>
+    <color name="words_blue">#3395DE</color>
+
+
+
+    <color name="colorAccent">#48B8B4</color>
+    <!-- materialDialog 按钮颜色 -->
     <color name="login_btn_text_color">#48B8B4</color>
-    <color name="white">#ffffff</color>
+
     <!-- 白色 -->
     <color name="TextColorWhite">#000000</color>
     <color name="whitebg">#7fffffff</color>

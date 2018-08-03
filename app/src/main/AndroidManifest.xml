@@ -54,6 +54,18 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
+            android:name=".ui.activity.NoticeDetail"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.ChangeNotice"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.newNotice"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
             android:name=".ui.activity.document"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
@@ -64,7 +76,7 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".ui.activity.announcement"
+            android:name=".ui.activity.NoticeList"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
         </activity>

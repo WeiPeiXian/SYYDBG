@@ -37,17 +37,16 @@ public class RegisterActivity extends BaseActivity {
 
     private EditText mUsernameET;
     private EditText mPasswordET;
-    private EditText mCodeET;
+    private EditText repeatPW;
     private Button mSignupBtn;
     private Handler mHandler;
-    private CheckBox mPasswordCB;
     private ImageView mBackTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat_register);
+        setContentView(R.layout.register);
 
         mHandler = new Handler() {
             public void handleMessage(Message msg) {
@@ -79,40 +78,17 @@ public class RegisterActivity extends BaseActivity {
                 }
             };
         };
-
-        mUsernameET = (EditText) findViewById(R.id.chat_register_username);
-        mPasswordET = (EditText) findViewById(R.id.chat_register_password);
-        mSignupBtn = (Button) findViewById(R.id.chat_register_signup_btn);
-        mPasswordCB = (CheckBox) findViewById(R.id.chat_register_password_checkbox);
-        mBackTV = (ImageView) findViewById(R.id.chat_register_back);
-
-
-
-
+        mUsernameET = (EditText) findViewById(R.id.user_register_username);
+        mPasswordET = (EditText) findViewById(R.id.register_password);
+        mSignupBtn = (Button) findViewById(R.id.user_register_password);
+        repeatPW = (EditText) findViewById(R.id.register_password2);
+        mBackTV = (ImageView) findViewById(R.id.back);
         mBackTV.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
                 finish();
-            }
-        });
-        mPasswordCB.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-                // TODO Auto-generated method stub
-                if (arg1) {
-                    mPasswordCB.setChecked(true);
-                    mPasswordET
-                            .setTransformationMethod(HideReturnsTransformationMethod
-                                    .getInstance());
-                } else {
-                    mPasswordCB.setChecked(false);
-                    mPasswordET
-                            .setTransformationMethod(PasswordTransformationMethod
-                                    .getInstance());
-                }
             }
         });
         mSignupBtn.setOnClickListener(new OnClickListener() {
@@ -122,6 +98,7 @@ public class RegisterActivity extends BaseActivity {
                 // TODO Auto-generated method stub
                 final String userName = mUsernameET.getText().toString().trim();
                 final String password = mPasswordET.getText().toString().trim();
+                final String repeat = repeatPW.getText().toString().trim();
 
                 if (TextUtils.isEmpty(userName)) {
                     Toast.makeText(getApplicationContext(), "请输入用户名",
@@ -129,7 +106,11 @@ public class RegisterActivity extends BaseActivity {
                 } else if (TextUtils.isEmpty(password)) {
                     Toast.makeText(getApplicationContext(), "请输入密码",
                             Toast.LENGTH_SHORT).show();
-                } else {
+                }else if(password.equals(repeat)){
+                    Toast.makeText(getApplicationContext(), "两次密码不一致",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
                     new Thread(new Runnable() {
 
                         @Override

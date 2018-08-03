@@ -60,6 +60,7 @@ public class FragmentChat extends BaseFragment {
                 return false;
             }
         });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +68,7 @@ public class FragmentChat extends BaseFragment {
                 back.setClickable(false);
             }
         });
+        cancle(back,getActivity(),ed);
         cancle(toolbar,getActivity(),ed);
         view.getViewTreeObserver().addOnGlobalLayoutListener(globalLayoutListener);
         toolbar.inflateMenu(R.menu.document);

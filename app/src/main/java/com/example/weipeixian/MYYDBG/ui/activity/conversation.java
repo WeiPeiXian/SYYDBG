@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,12 +38,20 @@ public class conversation extends AppCompatActivity {
     protected LCIMConversationFragment conversationFragment;
     private TextView tx;
     private  AVIMTextMessage im;
+    private ImageButton back;
     String memberid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversation);
         tx = (TextView) findViewById(R.id.textView);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         conversationFragment = (LCIMConversationFragment)getSupportFragmentManager().findFragmentById(cn.leancloud.chatkit.R.id.fragment_chat);
         initByIntent(getIntent());
     }

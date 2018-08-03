@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,12 +27,15 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.avos.avoscloud.AVCloudQueryResult;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.CloudQueryCallback;
 import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.GetDataCallback;
 import com.avos.avoscloud.ProgressCallback;
 import com.avos.avoscloud.SaveCallback;
 import com.avos.avoscloud.im.v2.AVIMClient;
@@ -41,7 +45,10 @@ import com.example.weipeixian.MYYDBG.R;
 import com.example.weipeixian.MYYDBG.adapter.documentAdapter;
 import com.example.weipeixian.MYYDBG.util.DocumentUtil;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -194,8 +201,11 @@ public class document extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public void update_public(final boolean t){
+    public void update_public(final Boolean t){
         //分别显示我的分享
+        //t = 0 公共文档页面
+        //t = 1 我的分享等等
+        //t = 2 别人的分享文件夹
         AVQuery<AVObject> query = new AVQuery<>("Document");
         query.whereEqualTo("Folder", "公共文档");
         if (t){
@@ -204,6 +214,7 @@ public class document extends AppCompatActivity {
         }
         else
             query.whereEqualTo("CreatedBy",AVUser.getCurrentUser().getUsername());
+
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
@@ -222,7 +233,6 @@ public class document extends AppCompatActivity {
                         avObject.put("Name","我的文档");
                         mlist.add(avObject);
                     }
-
                     for (AVObject a:list){
                         if (a.getString("Type").equals("folder")){
                             mlist.add(a);
@@ -239,29 +249,20 @@ public class document extends AppCompatActivity {
                     itemAdapter.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            if (position == 0){
-                                update_public(false);
-                                backFolder = "公共文档";
-                                setTitle("我的分享");
-                            }
-                            else {
-                                AVObject avObject =  mlist.get(position);
-                                if (avObject.getString("Type").equals("folder")){
-                                    setBackFolder();
-                                    setTitle(avObject.getString("Name"));
-                                    update_public(true);
+                            if (t){
+                                if (position == 0){
+                                    update_public(false);
+                                    backFolder = "公共文档";
+                                    setTitle("我的分享");
                                 }
                             }
-
                         }
                     });
                     itemAdapter.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                         @Override
                         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                             AVObject avObject =  mlist.get(position);
-                            if (avObject.getString("Type").equals("file")){
-                                edit_my_file(avObject);
-                            }
+                            edit_my_file(avObject);
                             //弹出操作
                             return false;
                         }
@@ -318,9 +319,7 @@ public class document extends AppCompatActivity {
                         @Override
                         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                             AVObject avObject =  mlist.get(position);
-                            if (avObject.getString("Type").equals("file")){
-                                edit_my_file(avObject);
-                            }
+                            edit_my_file(avObject);
                             //弹出操作
                             return false;
                         }
@@ -374,7 +373,10 @@ public class document extends AppCompatActivity {
     }
 
     public  String getfolder(){
-        return getTitle().toString();
+        String folder = getTitle().toString();
+        if (folder.equals("我的分享"))
+            folder = "公共文档";
+        return folder;
     }
     public void update(){
         mlist.clear();
@@ -418,9 +420,7 @@ public class document extends AppCompatActivity {
                         @Override
                         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                             AVObject avObject =  mlist.get(position);
-                            if (avObject.getString("Type").equals("file")){
-                                edit_my_file(avObject);
-                            }
+                            edit_my_file(avObject);
                             //弹出操作
                             return false;
                         }
@@ -441,14 +441,46 @@ public class document extends AppCompatActivity {
 
 
     public void edit_my_file(final AVObject avObject){
+        //分情况//讨论
         AlertDialog dialog = new AlertDialog.Builder(document.this)
         .setTitle("操作").setItems(new String[]{"下载", "转移","分享","删除"}, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:
-                        AVFile  file=  avObject.getAVFile("document");
-                        //下载
+                        final AVFile  file=  avObject.getAVFile("document");
+                        file.getDataInBackground(new GetDataCallback() {
+                            @Override
+                            public void done(byte[] bytes, AVException e) {
+                                pd.dismiss();
+                                if (e == null) {
+                                    Log.d("saved", "文件大小" + bytes.length);
+                                    File downloadedFile = new File(Environment.getExternalStorageDirectory() + "/"+file.getName());
+                                    FileOutputStream fout = null;
+                                    try {
+                                        fout = new FileOutputStream(downloadedFile);
+                                        fout.write(bytes);
+                                        Log.d("saved", "文件写入成功.");
+                                        fout.close();
+                                    }
+                                    catch (FileNotFoundException e1) {
+                                        e1.printStackTrace();
+                                        Log.d("saved", "文件找不到.." + e1.getMessage());
+                                    } catch (IOException e1) {
+                                        Log.d("saved", "文件读取异常.");
+                                    }
+                                } else {
+                                    Log.d("saved", "出错了" + e.getMessage());
+                                }
+                            }
+                            }, new ProgressCallback() {
+                            @Override
+                            public void done(Integer integer) {
+                                pd.show();
+                                pd.setProgress(integer);
+                            }
+                        });
+
                         break;
                     case 1:
                         //转移
@@ -458,6 +490,29 @@ public class document extends AppCompatActivity {
                         //分享
                         startActivity(new Intent(document.this,shareDocument.class));
                         update();
+                        break;
+                    case 3:
+                        //删除
+                        //
+                        AVQuery.doCloudQueryInBackground("delete from Document where objectId='"+avObject.getObjectId()+"'", new CloudQueryCallback<AVCloudQueryResult>() {
+                            @Override
+                            public void done(AVCloudQueryResult avCloudQueryResult, AVException e) {
+                                // 如果 e 为空，说明保存成功
+                            }
+                        });
+                        switch (radioGroup.getCheckedRadioButtonId()){
+                            case R.id.radio_me:
+                                update();
+                                ; //个人文档的操作
+                                break;
+                            case R.id.radio_pub:
+                                update_public(false);
+                                break;
+                            case R.id.radio_do:
+                                update_moban();
+                                break;
+                        }
+                        update_public(false);
                         break;
                     default:
                         break;

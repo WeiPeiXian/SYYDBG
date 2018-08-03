@@ -5,64 +5,43 @@
     android:orientation="vertical"
     android:background="@color/white">
 
-    <FrameLayout
+    <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:id="@+id/layout1">
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/title_blue">
 
         <TextView
             android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:background="@color/background2"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:paddingTop="10dip"
             android:text="文档分享"
             android:textColor="@color/words"
             android:textSize="25dip" />
 
-        <ImageButton
-            android:id="@+id/return6"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="20dip"
-            android:layout_marginTop="15dip"
-            android:background="@color/background2"
-            android:src="@mipmap/back" />
-    </FrameLayout>
-    <TextView
-        android:id="@+id/tx"
-        android:layout_below="@+id/layout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="添加联系人"
-        android:textSize="28dp"
-        android:textColor="@color/black"/>
+    </LinearLayout>
+
     <EditText
-        android:id="@+id/layout2"
         android:layout_width="match_parent"
-        android:layout_height="41dp"
+        android:layout_height="35dp"
         android:layout_marginLeft="20dip"
         android:layout_marginRight="20dip"
-        android:layout_marginTop="5dip"
-        android:layout_below="@+id/tx"
+        android:layout_below="@+id/layout1"
+        android:layout_marginTop="10dp"
         android:background="@drawable/shape"
         android:drawableLeft="@mipmap/search"
-        android:drawablePadding="10dp"
-        android:hint="搜索"
+        android:paddingLeft="10dp"
+        android:hint="  搜索"
         android:singleLine="true"
-        android:textSize="20dp" />
+        android:textSize="15dp" />
 
-    <Button
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:background="@color/button"
-        android:text="立即分享"
-        android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:background="@mipmap/edit" />
 
 </RelativeLayout>

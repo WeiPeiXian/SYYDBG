@@ -20,6 +20,10 @@ public class contacts extends BaseActivity{
     @Override
     public void onCreate(Bundle saveInstancestate) {
         super.onCreate(saveInstancestate);
+
+
+
+
         requestPermission();
     }
     private void requestPermission(){
@@ -43,7 +47,6 @@ public class contacts extends BaseActivity{
         Cursor mCursor = null;
         try{
             mCursor = getContentResolver().query(Uri.parse("content://sms/"), new String[] { "_id", "address", "read", "body", "thread_id" }, "read=?", new String[] { "0" }, "date desc");
-//            mCursor =getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null,null,null);
             int nameColumn = mCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);//姓名
             Log.d("null", String.valueOf(mCursor));
             Log.d("SSSSSSSSSSSSSSSSSSSSSS",String.valueOf(mCursor));

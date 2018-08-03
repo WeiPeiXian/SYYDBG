@@ -52,7 +52,7 @@ public class LoginActivity extends BaseActivity {
   protected void onCreate(Bundle savedInstanceState) {
     // TODO Auto-generated method stub
       super.onCreate(savedInstanceState);
-      setContentView(R.layout.activity_chat_login);
+      setContentView(R.layout.login);
       mUsernameET = (EditText) findViewById(R.id.chat_login_username);
       mPasswordET = (EditText) findViewById(R.id.chat_login_password);
       mSigninBtn = (Button) findViewById(R.id.chat_login_signin_btn);

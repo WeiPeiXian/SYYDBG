@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:id="@+id/fl"
-        android:background="@color/background2"
+        android:background="@color/title_blue"
         android:layout_height="?android:attr/actionBarSize">
         <ImageButton
             android:id="@+id/add"

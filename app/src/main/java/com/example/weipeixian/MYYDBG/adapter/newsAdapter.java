@@ -27,9 +27,7 @@ public class newsAdapter extends BaseRecyclerViewAdapter{
         final AVObject item = (AVObject) list.get(position);
         TextView dateTV = holder.getTextView(R.id.news_time_iv);
         TextView contentTV = holder.getTextView(R.id.news_message_iv);
-//        TextView nameTV = holder.getTextView(R.id.sms_name_iv);
         dateTV.setText(item.getString("Title"));
         contentTV.setText(item.getString("body"));
-//        nameTV.setText(item.getUsername());
     }
 }

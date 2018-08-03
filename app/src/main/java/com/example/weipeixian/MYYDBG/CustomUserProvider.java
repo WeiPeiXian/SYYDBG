@@ -23,6 +23,7 @@ public class CustomUserProvider implements LCChatProfileProvider {
   }
   private static List<LCChatKitUser> partUsers = new ArrayList<LCChatKitUser>();
   static {
+
     partUsers.add(new LCChatKitUser("Tom", "Tom", ""));
     partUsers.add(new LCChatKitUser("1677", "1677", ""));
     partUsers.add(new LCChatKitUser("15520760237", "Harry", ""));

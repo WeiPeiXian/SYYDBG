@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="48dp"
+    xmlns:ellipsize="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingTop="@dimen/width_3_160">
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_marginLeft="@dimen/width_5_160"
         android:gravity="center_vertical"
         android:layout_width="wrap_content"
         android:orientation="vertical"
         android:layout_height="48dp">
-        <TextView
-            android:text="欢迎您再次回到XM"
-            android:id="@+id/news_message_iv"
-            android:layout_marginTop="@dimen/height_1_160"
-            android:textColor="@color/grey"
-            android:layout_marginRight="@dimen/width_3_160"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
 
-    <TextView
-        android:id="@+id/news_time_iv"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="10:21"
-        android:textColor="@color/grey"
-        android:layout_marginRight="@dimen/width_3_160"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_toLeftOf="@id/time"
+            android:id="@+id/title"
+            android:textSize="20dp"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"/>
+        <TextView
+            android:id="@+id/time"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/grey"
+            android:gravity="center_vertical"
+            android:layout_marginRight="@dimen/width_3_160"
+            android:text="2018-8-23"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"/>
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"

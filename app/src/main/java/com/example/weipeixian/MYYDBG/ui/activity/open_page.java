@@ -6,20 +6,34 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.avos.avoscloud.AVUser;
 import com.example.weipeixian.MYYDBG.BaseActivity;
 import com.example.weipeixian.MYYDBG.R;
 import com.example.weipeixian.MYYDBG.util.XmTools;
 
+import java.security.PrivateKey;
+
 public class open_page extends BaseActivity{
     private ImageButton[] buttons = new ImageButton[6];
+    private ImageButton button;
     private String[] data = { "SMS", "contacts", "NoticeList", "news",
             "document", "请假流程","退出" };
     @SuppressLint("WrongViewCast")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.open_page);
+        button = (ImageButton) findViewById(R.id.edit);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AVUser.logOut();// 清除缓存用户对象
+                startActivity(new Intent(open_page.this,LoginActivity.class));
+                finish();
+            }
+        });
         buttons[0] =(ImageButton)findViewById(R.id.bt_sms);
         buttons[1]=(ImageButton)findViewById(R.id.bt_contact);
         buttons[2]=(ImageButton)findViewById(R.id.bt_announcement);

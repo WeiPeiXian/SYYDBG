@@ -47,6 +47,7 @@ public class LoginActivity extends BaseActivity {
   private Button mSigninBtn;
   private TextView mSignupTV;
   private CheckBox mPasswordCB;
+  private TextView found;
   private static final int REQUEST_WRITE_EXTERNAL_STORAGE = 0;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,14 @@ public class LoginActivity extends BaseActivity {
       mSigninBtn = (Button) findViewById(R.id.chat_login_signin_btn);
       mSignupTV = (TextView) findViewById(R.id.chat_login_signup);
       mPasswordCB = (CheckBox) findViewById(R.id.chat_login_password_checkbox);
+      found = (TextView)findViewById(R.id.user_found_password);
+      found.setOnClickListener(new View.OnClickListener(){
+
+          @Override
+          public void onClick(View v) {
+              startActivity(new Intent(LoginActivity.this,FoundPassword.class));
+          }
+      });
       AVUser currentUser = AVUser.getCurrentUser();
       if (currentUser != null) {
           if (hasWriteExternalStoragePermission()) {

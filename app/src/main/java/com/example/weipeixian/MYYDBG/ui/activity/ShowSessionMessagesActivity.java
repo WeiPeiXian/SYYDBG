@@ -26,6 +26,7 @@ public class ShowSessionMessagesActivity extends BaseActivity {
         ShowSessionMessagesAdapter sessionMessagesAdapter = new ShowSessionMessagesAdapter(this);
         sessionMessagesAdapter.getSessionMessages(threadId);
         sessionMessagesListView.setAdapter(sessionMessagesAdapter);
+
         //实时通知数据已更新
         sessionMessagesAdapter.notifyDataSetChanged();
 

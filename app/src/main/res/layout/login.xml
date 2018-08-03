@@ -52,7 +52,9 @@
 
             android:layout_marginLeft="20dip"
             android:layout_marginRight="20dip"
-            android:layout_marginTop="20dip">
+            android:layout_marginTop="20dip"
+            android:background="@color/background2"
+            >
             <EditText
                 android:id="@+id/chat_login_password"
                 android:layout_toLeftOf="@+id/chat_login_password_checkbox"
@@ -62,19 +64,17 @@
                 android:hint="  登录密码"
                 android:password="true"
                 android:textSize="20dip">
-
             </EditText>
             <CheckBox
                 android:id="@+id/chat_login_password_checkbox"
                 android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"
+                android:background="@color/background2"
                 android:button="@drawable/password_checkbox"/>
-
         </RelativeLayout>
-
     </LinearLayout>
 
 
@@ -85,9 +85,10 @@
 
         <Button
             android:id="@+id/chat_login_signin_btn"
-            android:layout_width="340dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="10dip"
             android:background="@color/button"
             android:text="登录"

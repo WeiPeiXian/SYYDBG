@@ -20,10 +20,6 @@ public class contacts extends BaseActivity{
     @Override
     public void onCreate(Bundle saveInstancestate) {
         super.onCreate(saveInstancestate);
-
-
-
-
         requestPermission();
     }
     private void requestPermission(){

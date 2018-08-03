@@ -40,12 +40,7 @@ public class news extends AppCompatActivity {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        AVObject object = new AVObject("News");
-        object.put("Title", "新闻列表");
-        object.put("body", "新闻内容");
-        object.put("time", "当前时间");
-        object.put("type", "新闻类别");
-        object.saveInBackground();
+
 
         //获取对象列表
 
@@ -74,5 +69,6 @@ public class news extends AppCompatActivity {
         });
         recyclerView.setHasFixedSize(true);
     }
+
 
 }

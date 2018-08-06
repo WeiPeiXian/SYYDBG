@@ -7,20 +7,47 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.example.weipeixian.MYYDBG.BaseActivity;
 import com.example.weipeixian.MYYDBG.PermissionListener;
+import com.example.weipeixian.MYYDBG.R;
+import com.example.weipeixian.MYYDBG.adapter.contactadapter;
+import com.example.weipeixian.MYYDBG.adapter.newsAdapter;
+import com.example.weipeixian.MYYDBG.model.PhoneInfo;
 import com.example.weipeixian.MYYDBG.model.SmsInfo;
+import com.example.weipeixian.MYYDBG.util.PhoneUtil;
 
 import java.util.List;
 
-public class contacts extends BaseActivity{
-    @RequiresApi(api = Build.VERSION_CODES.O)
+public class contacts extends BaseActivity {
+    protected RecyclerView recyclerView;
+    //下面的adapter换为自己的
+    private Toolbar toolbar;
+
+    private contactadapter itemAdapter;
     @Override
-    public void onCreate(Bundle saveInstancestate) {
-        super.onCreate(saveInstancestate);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.list_news);
+        //找到自己布局文件的recyclerView
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("联系人");
+        recyclerView = (RecyclerView)findViewById(R.id.news_recycleView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(contacts.this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
         requestPermission();
+
+        //获取对象列表
+
+
     }
     private void requestPermission(){
         requestRunTimePermission(new String[]{Manifest.permission.READ_CONTACTS}
@@ -38,34 +65,13 @@ public class contacts extends BaseActivity{
                     }
                 });
     }
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public void get(){
-        Cursor mCursor = null;
-        try{
-            mCursor = getContentResolver().query(Uri.parse("content://sms/"), new String[] { "_id", "address", "read", "body", "thread_id" }, "read=?", new String[] { "0" }, "date desc");
-            int nameColumn = mCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);//姓名
-            Log.d("null", String.valueOf(mCursor));
-            Log.d("SSSSSSSSSSSSSSSSSSSSSS",String.valueOf(mCursor));
-            Log.d("SSSSSSSSSSSSSSSSSSSSSS",String.valueOf(nameColumn));
+        PhoneUtil phoneUtil = new PhoneUtil(contacts.this);
+        List<PhoneInfo> list =  phoneUtil.getPhone();
+        itemAdapter = new contactadapter(contacts.this,list);
+        recyclerView.setAdapter(itemAdapter);
+        recyclerView.setHasFixedSize(true);
 
-            if (mCursor.moveToFirst()) {
-                Log.d("null", String.valueOf(mCursor));
-                Log.d("null", String.valueOf(nameColumn));
-                do {
-                    int _inIndex = mCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
-                    if (_inIndex != -1) {
-                        String m = mCursor.getString(_inIndex);
-                        Log.d("null", m);
-                    }
-                } while (mCursor.moveToNext());
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            if (mCursor !=null){
-                mCursor.close();
-                Log.d("SSSSSSSSSSSSSSSSSSSSSS","SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-            }
-        }
     }
+
 }

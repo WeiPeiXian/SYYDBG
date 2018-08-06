@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/re1"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        tools:layout_editor_absoluteX="layout_editor_absoluteX"
+        tools:layout_editor_absoluteY="layout_editor_absoluteY"
+        android:orientation="horizontal"
+        android:background="@color/title_blue"
+        >
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:background="@mipmap/back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="title"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:id="@+id/title"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="下一步"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_below="@id/re1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        android:background="@color/background2"
+        android:fadingEdge="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/re1"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/add"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/white"
+                android:text="添加字段+"/>
+        </LinearLayout>
+
+
+    </ScrollView>
+</RelativeLayout>

@@ -55,11 +55,20 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
+            android:name=".ui.activity.send_sms"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
             android:name=".ui.activity.ShowSessionMessagesActivity"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
             android:name=".ui.activity.NoticeDetail"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.add_process"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
@@ -95,11 +104,7 @@
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
         </activity>
-        <activity
-            android:name=".ui.activity.contacts"
-            android:label="@string/app_name"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+
         <activity
             android:name=".ui.activity.SMSHostActivity"
             android:label="@string/app_name"
@@ -126,7 +131,6 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.RECORD_VIDEO" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />

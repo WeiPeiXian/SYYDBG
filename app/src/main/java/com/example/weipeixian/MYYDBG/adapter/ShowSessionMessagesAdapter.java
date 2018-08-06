@@ -160,7 +160,7 @@ public class ShowSessionMessagesAdapter extends BaseAdapter {
 
                     convertView = mInflater.inflate(R.layout.message_session_list_send_item, null);
                     sendMessageHolder = new MessageHolder();
-                    receivedMessageHolder.setTvTime((TextView)convertView.findViewById(R.id.time));
+                    sendMessageHolder.setTvTime((TextView)convertView.findViewById(R.id.time));
                     sendMessageHolder.setTvDesc((TextView) convertView.findViewById(
                             R.id.SendSessionMessageTextView));
                     convertView.setTag(sendMessageHolder);

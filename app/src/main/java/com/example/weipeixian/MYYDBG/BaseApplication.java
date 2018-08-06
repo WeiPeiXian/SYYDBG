@@ -1,5 +1,6 @@
 package com.example.weipeixian.MYYDBG;
 import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 //import com.easemob.chat.EMChat;
 import com.avos.avoscloud.AVException;
@@ -12,7 +13,7 @@ import com.example.weipeixian.MYYDBG.ui.activity.open_page;
 
 import cn.leancloud.chatkit.LCChatKit;
 
-public class BaseApplication extends Application {
+public class BaseApplication extends MultiDexApplication {
     private final String APP_ID = "i4YKTRWxDNATl5uWByPWJtUp-gzGzoHsz";
     private final String APP_KEY = "QCO2a3xBXaFtWSJr0ND0O1hB";
     private static final String TAG = BaseApplication.class.getSimpleName();

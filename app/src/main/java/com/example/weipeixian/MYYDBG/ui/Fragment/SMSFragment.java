@@ -54,6 +54,7 @@ import com.example.weipeixian.MYYDBG.model.ContactData;
 import com.example.weipeixian.MYYDBG.model.ContactItem;
 import com.example.weipeixian.MYYDBG.model.SmsInfo;
 import com.example.weipeixian.MYYDBG.ui.activity.ShowSessionMessagesActivity;
+import com.example.weipeixian.MYYDBG.ui.activity.send_sms;
 import com.example.weipeixian.MYYDBG.util.SmsHandler;
 
 import java.text.SimpleDateFormat;
@@ -131,6 +132,7 @@ public class SMSFragment extends BaseFragment{
         send.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(getActivity(),send_sms.class));
                 Toast.makeText(getActivity(),"进入发送界面",Toast.LENGTH_SHORT).show();
             }
         });

@@ -71,14 +71,14 @@ public class FragmentChat extends BaseFragment {
         cancle(back,getActivity(),ed);
         cancle(toolbar,getActivity(),ed);
         view.getViewTreeObserver().addOnGlobalLayoutListener(globalLayoutListener);
-        toolbar.inflateMenu(R.menu.document);
+//        toolbar.inflateMenu(R.menu.document);
         toolbar.setTitle("内部短信");
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                return false;
-            }
-        });
+//        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                return false;
+//            }
+//        });
         return view;
     }
     private ViewTreeObserver.OnGlobalLayoutListener globalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {

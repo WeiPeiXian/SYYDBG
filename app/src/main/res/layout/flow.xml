@@ -8,9 +8,9 @@
     <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="fill_parent"
+        android:layout_alignParentTop="true"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/title_blue">
-
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
@@ -18,70 +18,32 @@
             android:text="流程"
             android:textColor="@color/words"
             android:textSize="25dip" />
-
     </LinearLayout>
-
     <LinearLayout
+        android:id="@+id/linlay"
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/layout1"
         android:background="@drawable/background4"
         android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dip"
-            android:layout_marginRight="35dip"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:gravity="center"
-            android:text="代办事宜"
-            android:textSize="15dp" />
-
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dip"
-            android:layout_marginRight="35dip"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:gravity="center"
-            android:text="已办事宜"
-            android:textSize="15dp" />
-
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="35dip"
-            android:layout_marginRight="35dip"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:gravity="center"
-            android:text="办结事宜"
-            android:textSize="15dp" />
-
-
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.design.widget.TabLayout>
     </LinearLayout>
 
-
-    <EditText
-        android:id="@+id/layout2"
-        android:layout_width="346dp"
-        android:layout_height="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
-        android:background="@drawable/shape"
-        android:drawableLeft="@mipmap/search"
-        android:drawablePadding="10dp"
-        android:paddingLeft="10dp"
-        android:hint="搜索"
-        android:singleLine="true"
-        android:textSize="15dp" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/linlay"
+        android:layout_above="@+id/relay"
+        android:layout_height="wrap_content"
+        />
 
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/relay"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
@@ -89,38 +51,35 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tx1"
             android:layout_width="60dp"
             android:layout_height="30dp"
             android:layout_marginLeft="35dip"
-            android:layout_marginRight="35dip"
-            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
             android:background="@color/white"
             android:gravity="center"
             android:text="流程配置"
             android:textSize="15dp" />
-
         <Button
-            android:layout_width="40dp"
+            android:id="@+id/add"
+            android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="45dip"
-            android:layout_marginRight="45dip"
-            android:layout_marginTop="10dp"
+            android:layout_centerInParent="true"
             android:background="@mipmap/add2"
             android:gravity="center"
             />
-
         <TextView
+            android:id="@+id/tx2"
             android:layout_width="60dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="35dip"
             android:layout_marginRight="35dip"
-            android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
             android:background="@color/white"
+            android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="流程监控"
             android:textSize="15dp" />
-
-
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

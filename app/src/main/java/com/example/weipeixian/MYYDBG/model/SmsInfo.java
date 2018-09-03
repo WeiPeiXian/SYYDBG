@@ -28,6 +28,14 @@ public class SmsInfo {
      * 会话人的信息，属于联系人则为名称，否则为其号码
      */
     private String contactMes;
+    private String phone;
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String thread_id) {
+        this.phone = thread_id;
+    }
+
 
     public String getThread_id() {
         return thread_id;
@@ -44,15 +52,12 @@ public class SmsInfo {
     public void setContactMes(String contactMes) {
         this.contactMes = contactMes;
     }
-
-
     public String getMessageCout() {
         return messageCout;
     }
     public void setMessageCout(String messageCout) {
         this.messageCout = messageCout;
     }
-
     public String getDate() {
         return date;
     }
@@ -78,9 +83,9 @@ public class SmsInfo {
         this.smsBody = message;
     }
     public String getTime() {
-        return read;
+        return date;
     }
     public void setTime(String time) {
-        this._id = time;
+        this.date = time;
     }
 }

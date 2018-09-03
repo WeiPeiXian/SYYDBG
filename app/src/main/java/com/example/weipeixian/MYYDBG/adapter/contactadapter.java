@@ -1,16 +1,12 @@
 package com.example.weipeixian.MYYDBG.adapter;
 
 import android.content.Context;
-import android.text.Html;
 import android.view.View;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.weipeixian.MYYDBG.R;
 import com.example.weipeixian.MYYDBG.holder.RecyclerHolder;
 import com.example.weipeixian.MYYDBG.model.PhoneInfo;
-import com.example.weipeixian.MYYDBG.model.SmsInfo;
-import com.example.weipeixian.MYYDBG.ui.Fragment.SMSFragment;
 
 import java.util.List;
 

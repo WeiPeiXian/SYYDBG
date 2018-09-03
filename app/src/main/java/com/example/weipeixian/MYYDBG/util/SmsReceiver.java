@@ -37,7 +37,6 @@ public class SmsReceiver extends BroadcastReceiver {
                     String receiveTime = format.format(date);
                 }
                 //根据你策略的手机端口号/拦截关键字判断进行是否中断广播(this.abortBroadcast();),
-                //TODO
             }
         }
     }

@@ -12,9 +12,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.avos.avoscloud.AVCallback;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.im.v2.AVIMConversation;
 import com.avos.avoscloud.im.v2.AVIMException;
 import com.avos.avoscloud.im.v2.AVIMMessage;
@@ -30,7 +27,7 @@ import cn.leancloud.chatkit.LCChatMessageInterface;
 import cn.leancloud.chatkit.R;
 import cn.leancloud.chatkit.event.LCIMConversationItemLongClickEvent;
 import cn.leancloud.chatkit.utils.LCIMConstants;
-import cn.leancloud.chatkit.utils.LCIMConversationUtils;
+import com.example.weipeixian.MYYDBG.util.LCIMConversationUtils;
 import cn.leancloud.chatkit.utils.LCIMLogUtils;
 import cn.leancloud.chatkit.viewholder.LCIMCommonViewHolder;
 import de.greenrobot.event.EventBus;
@@ -106,7 +103,6 @@ public class LCIMConversationItemHolder extends LCIMCommonViewHolder {
       });
     }
   }
-
   /**
    * 一开始的时候全部置为空，避免因为异步请求造成的刷新不及时而导致的展示原有的缓存数据
    */

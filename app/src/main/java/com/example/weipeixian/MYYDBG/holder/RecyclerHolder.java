@@ -4,12 +4,13 @@ import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class RecyclerHolder {
+public class RecyclerHolder{
     private SparseArray<View> viewHolder;
     private View view;
 
@@ -42,6 +43,9 @@ public class RecyclerHolder {
     }
 
     public TextView getTextView(int id) {
+        return get(id);
+    }
+    public CheckBox getCheckBox(int id) {
         return get(id);
     }
 

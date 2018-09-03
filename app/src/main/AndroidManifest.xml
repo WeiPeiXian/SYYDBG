@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <receiver android:name="com.example.weipeixian.MYYDBG.util.SmsReceiver" >
+        <activity android:name=".ui.activity.message.conversation"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="cn.leancloud.chatkit.conversation_item_click_action"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name=".util.SmsReceiver" >
             <intent-filter android:priority="999">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
@@ -37,76 +44,158 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.weipeixian.MYYDBG.ui.activity.conversation"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="cn.leancloud.chatkit.conversation_item_click_action"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
+        <activity
+            android:name=".ui.activity.process.add_flow"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.process.add_process"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.process.flowDetail"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.process.my_flow"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.process.flow_monitor"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.notice.ChangeNotice"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.contact.contactHostActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.contact.add_public_contact"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.contact.Change_public_Contact"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.contact.public_contact_detail"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.document.change_folder"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
             android:name=".ui.activity.RegisterActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
         </activity>
+
+  ?
+
         <activity
-            android:name=".ui.activity.FoundPassword"
+            android:name=".ui.activity.process.process_manage"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".ui.activity.send_sms"
+            android:name=".ui.activity.process.new_flow"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".ui.activity.ShowSessionMessagesActivity"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-        <activity
-            android:name=".ui.activity.NoticeDetail"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-        <activity
-            android:name=".ui.activity.add_process"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-        <activity
-            android:name=".ui.activity.ChangeNotice"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-        <activity
-            android:name=".ui.activity.newNotice"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-        <activity
-            android:name=".ui.activity.document"
+            android:name=".ui.activity.message.send_sms"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".ui.activity.contacts"
-            android:label="@string/app_name"
+            android:name=".ui.activity.message.ShowSessionMessagesActivity"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".ui.activity.NoticeList"
-            android:label="@string/app_name"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-        <activity
-            android:name=".ui.activity.process"
-            android:label="@string/app_name"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-        <activity
-            android:name=".ui.activity.send_message"
-            android:label="@string/app_name"
+            android:name=".ui.activity.notice.NoticeDetail"
             android:windowSoftInputMode="adjustPan" >
         </activity>
 
         <activity
-            android:name=".ui.activity.SMSHostActivity"
+            android:name=".ui.activity.notice.newNotice"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.document.document"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.notice.NoticeList"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.process.process"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.process.process_detail"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.process.add_process_type"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.message.send_message"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.contact.add_personal_contact"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.contact.person_contact_detail"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.contact.Change_personal_contact"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.message.SMSHostActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.news.addNews"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.news.newsDetail"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".ui.activity.news.newschange"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
         </activity>
@@ -115,13 +204,14 @@
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
         </activity>
+
         <activity
-            android:name="com.avos.avoscloud.feedback.ThreadActivity" >
-        </activity>
-        <activity
-            android:name=".ui.activity.news"
+            android:name=".ui.activity.news.news"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.avos.avoscloud.feedback.ThreadActivity" >
         </activity>
     </application>
 
@@ -131,6 +221,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.RECORD_VIDEO" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -140,7 +231,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" ></uses-permission>
-    <uses-permission android:name="android.permission.READ_SMS" ></uses-permission>
-    <uses-permission android:name="android.permission.SEND_SMS" ></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 </manifest>

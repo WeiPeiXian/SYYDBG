@@ -30,10 +30,10 @@
             android:layout_toRightOf="@id/return4"
             android:layout_toLeftOf="@+id/new_phone_message"
             android:background="@color/title_blue"
-            android:gravity="center|left"
+            android:gravity="center"
             android:text="手机短信"
             android:textColor="@color/words"
-            android:textSize="20dip" />
+            android:textSize="25dip" />
         <ImageButton
             android:id="@+id/new_phone_message"
             android:layout_alignParentRight="true"

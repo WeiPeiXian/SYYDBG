@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="120dp"
+    android:orientation="vertical"
+    android:id="@+id/layout"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="步骤名称"
+        android:paddingLeft="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:paddingLeft="20dp"
+
+            android:text="审批人"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:gravity="center|right"
+            android:layout_gravity="center"
+            android:text="选择"
+            android:paddingRight="20dp"
+
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

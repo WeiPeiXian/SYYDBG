@@ -4,21 +4,31 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="@color/white">
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/layout1"
         android:layout_width="fill_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/title_blue">
+        android:layout_height="?android:attr/actionBarSize">
 
         <TextView
+            android:id="@+id/title"
             android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/title_blue"
             android:text="新增新闻"
+            android:gravity="center"
             android:textColor="@color/words"
             android:textSize="25dip" />
+        <ImageButton
+            android:id="@+id/return5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="15dip"
+            android:background="@mipmap/back"
+           />
 
-    </LinearLayout>
+    </FrameLayout>
 
     <EditText
             android:id="@+id/news_title"
@@ -27,7 +37,8 @@
             android:layout_height="40dp"
             android:layout_marginTop="10dip"
             android:background="@drawable/shape"
-            android:hint="  填写新闻标题"
+            android:hint="填写新闻标题"
+            android:paddingLeft="10dp"
             android:textSize="15dp" />
 
     <EditText
@@ -37,16 +48,19 @@
         android:layout_height="160dp"
         android:layout_marginTop="15dip"
         android:background="@drawable/shape"
-        android:hint="  填写新闻内容"
+        android:hint="填写新闻内容"
+        android:paddingLeft="10dp"
         android:gravity="left"
         android:textSize="15dp" />
 
    <Spinner
+       android:id="@+id/spinner"
        android:layout_width="300dp"
        android:layout_height="40dp"
        android:layout_gravity="center"
        android:layout_marginTop="15dip"
-       android:background="@drawable/shape">
+       android:background="@drawable/shape"
+       android:entries="@array/news_type">
 
    </Spinner>
 
@@ -58,6 +72,7 @@
         android:layout_gravity="center">
 
         <CheckBox
+            android:id="@+id/pinglun"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
@@ -72,6 +87,7 @@
             android:textSize="15dp"/>
 
         <CheckBox
+            android:id="@+id/zhiding"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
@@ -88,6 +104,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/catalog"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:orientation="horizontal"
@@ -113,6 +130,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/sub"
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:layout_marginLeft="260dp"

@@ -19,9 +19,8 @@
             android:text="新短信"
             android:textColor="@color/words"
             android:textSize="25dip" />
-
         <ImageButton
-            android:id="@+id/return7"
+            android:id="@+id/back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="10dip"
@@ -74,37 +73,33 @@
             android:background="@mipmap/add2" />
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
         android:layout_alignParentBottom="true"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:background="@color/background2"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/height_1_160"
+        android:paddingTop="@dimen/height_1_160">
 
-        <EditText
-            android:id="@+id/input1"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dip"
-            android:layout_marginRight="10dip"
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <EditText
+                android:id="@+id/chat_content"
+                style="@style/lcim_input_bar_edittext_style"/>
+        </FrameLayout>
 
-            android:layout_marginTop="10dip"
-            android:background="@drawable/shape"
-            android:layout_toLeftOf="@+id/send1"
-            android:hint="  输入内容"
-            android:textSize="15dp" />
-
-        <Button
-            android:id="@+id/send1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/background2"
-            android:text="发送"
-            android:textColor="#1296db"
-            android:textSize="20dp" />
-
-    </RelativeLayout>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/send"
+                style="@style/lcim_input_bar_button_style"
+                android:src="@drawable/lcim_bottom_bar_send_button_bg"
+                android:visibility="visible"/>
+        </FrameLayout>
+    </LinearLayout>
 </RelativeLayout>

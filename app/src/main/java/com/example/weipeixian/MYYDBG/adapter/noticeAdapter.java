@@ -7,6 +7,8 @@ import com.avos.avoscloud.AVObject;
 import com.example.weipeixian.MYYDBG.R;
 import com.example.weipeixian.MYYDBG.holder.RecyclerHolder;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class noticeAdapter extends BaseRecyclerViewAdapter{
@@ -25,7 +27,13 @@ public class noticeAdapter extends BaseRecyclerViewAdapter{
         final AVObject item = (AVObject) list.get(position);
         TextView dateTV = holder.getTextView(R.id.time);
         TextView contentTV = holder.getTextView(R.id.title);
-        dateTV.setText(item.getString("N_time"));
+        final SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd");
+        //获取当前时间
+        Date curDate = item.getUpdatedAt();
+        String str = formatter.format(curDate);
+
+
+        dateTV.setText(str);
         contentTV.setText(item.getString("N_title"));
     }
     @Override

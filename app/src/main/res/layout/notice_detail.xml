@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/head_title"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:background="@color/title_blue">
+
+            <ImageButton
+                android:id="@+id/return3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="20dip"
+                android:background="@mipmap/back"
+                android:onClick="ImageButtonClick1" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:layout_toLeftOf="@+id/new_phone_message"
+                android:layout_toRightOf="@+id/return3"
+                android:gravity="center"
+                android:paddingTop="10dip"
+                android:text="公告详情"
+                android:textColor="@color/black"
+                android:textSize="25dip" />
+
+
+            <ImageButton
+                android:id="@+id/new_phone_message"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="15dip"
+                android:background="@mipmap/add2"
+                android:onClick="ImageButtonClick2" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/response_2"
+            android:layout_width="fill_parent"
+            android:layout_height="72dp"
+            android:layout_below="@id/head_title"
+            android:background="@drawable/background3"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/news_message_iv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="公告标题："
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:textSize="20dp"
+                android:textColor="@color/words"/>
+
+            <TextView
+                android:id="@+id/news_time_iv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_below="@+id/news_message_iv_2"
+                android:paddingLeft="10dp"
+                android:text="发布时间："
+                android:textSize="15dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/response_2"
+            android:background="@drawable/background3"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Notice_matter_iv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="公告内容:"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

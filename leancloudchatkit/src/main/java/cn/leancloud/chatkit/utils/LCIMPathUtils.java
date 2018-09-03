@@ -10,12 +10,10 @@ import java.io.File;
  * Created by lzw on 15/4/26.
  */
 public class LCIMPathUtils {
-
   private static boolean isExternalStorageWritable() {
     String state = Environment.getExternalStorageState();
     return Environment.MEDIA_MOUNTED.equals(state);
   }
-
   /**
    * 有 sdcard 的时候，小米是 /storage/sdcard0/Android/data/com.avoscloud.chat/cache/
    * 无 sdcard 的时候，小米是 /data/data/com.avoscloud.chat/cache

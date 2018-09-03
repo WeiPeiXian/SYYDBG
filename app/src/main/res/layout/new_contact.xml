@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:background="@color/background2"
+            android:gravity="center"
+            android:paddingTop="10dip"
+            android:text="新增联系人"
+            android:textColor="@color/words"
+            android:textSize="25dip" />
+
+        <ImageButton
+            android:id="@+id/return5"
+            android:onClick="ImageButtonClick"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="15dip"
+            android:background="@color/background2"
+            android:src="@mipmap/back"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/background2"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/contact_name"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/shape"
+            android:hint="  联系人姓名"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/contact_number"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/shape"
+            android:inputType="number"
+            android:gravity="left"
+            android:hint="  联系人电话"
+            android:textSize="15dp" />
+        <!--<EditText-->
+            <!--android:id="@+id/location"-->
+            <!--android:layout_width="320dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_marginLeft="30dip"-->
+            <!--android:layout_marginRight="30dp"-->
+            <!--android:layout_marginTop="10dip"-->
+            <!--android:background="@drawable/shape"-->
+            <!--android:gravity="left"-->
+            <!--android:hint="  联系人所在城市"-->
+            <!--android:textSize="15dp" />-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/birthday"-->
+            <!--android:layout_width="320dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_marginLeft="30dip"-->
+            <!--android:layout_marginRight="30dp"-->
+            <!--android:layout_marginTop="10dip"-->
+            <!--android:background="@drawable/shape"-->
+            <!--android:inputType="date"-->
+            <!--android:gravity="left"-->
+            <!--android:hint="  联系人生日"-->
+            <!--android:textSize="15dp" />-->
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="255dp"
+            android:layout_marginTop="180dp"
+            android:background="@color/button"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

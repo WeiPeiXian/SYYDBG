@@ -63,7 +63,6 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
       progressBar = (ProgressBar) itemView.findViewById(R.id.chat_left_progressbar);
       errorView = (ImageView) itemView.findViewById(R.id.chat_left_tv_error);
     } else {
-//      avatarView = (ImageView) itemView.findViewById(R.id.chat_right_iv_avatar);
       timeView = (TextView) itemView.findViewById(R.id.chat_right_tv_time);
       nameView = (TextView) itemView.findViewById(R.id.chat_right_tv_name);
       conventLayout = (LinearLayout) itemView.findViewById(R.id.chat_right_layout_content);
@@ -83,16 +82,16 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
     message = (AVIMMessage) o;
     timeView.setText(millisecsToDateString(message.getTimestamp()));
     nameView.setText("");
-    LCIMProfileCache.getInstance().getCachedUser(message.getFrom(), new AVCallback<LCChatKitUser>() {
-      @Override
-      protected void internalDone0(LCChatKitUser userProfile, AVException e) {
-        if (null != e) {
-          LCIMLogUtils.logException(e);
-        } else if (null != userProfile) {
-          nameView.setText(userProfile.getUserName());
-        }
-      }
-    });
+//    LCIMProfileCache.getInstance().getCachedUser(message.getFrom(), new AVCallback<LCChatKitUser>() {
+//      @Override
+//      protected void internalDone0(LCChatKitUser userProfile, AVException e) {
+//        if (null != e) {
+//          LCIMLogUtils.logException(e);
+//        } else if (null != userProfile) {
+//          nameView.setText(userProfile.getUserName());
+//        }
+//      }
+//    });
 
     switch (message.getMessageStatus()) {
       case AVIMMessageStatusFailed:
@@ -139,25 +138,6 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
     }
   }
 
-  /**
-   * 设置头像点击按钮的事件
-   */
-//  private void setAvatarClickEvent() {
-//    avatarView.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View v) {
-//        try {
-//          Intent intent = new Intent();
-//          intent.setPackage(getContext().getPackageName());
-//          intent.setAction(LCIMConstants.AVATAR_CLICK_ACTION);
-//          intent.addCategory(Intent.CATEGORY_DEFAULT);
-//          getContext().startActivity(intent);
-//        } catch (ActivityNotFoundException exception) {
-//          Log.i(LCIMConstants.LCIM_LOG_TAG, exception.toString());
-//        }
-//      }
-//    });
-//  }
 
   /**
    * 设置发送失败的叹号按钮的事件
@@ -185,9 +165,7 @@ public class LCIMChatItemHolder extends LCIMCommonViewHolder {
     });
   }
 
-  //TODO 展示更人性一点
   private static String millisecsToDateString(long timestamp) {
-
     SimpleDateFormat format = new SimpleDateFormat("MM-dd HH:mm");
     Date date = new Date(timestamp);
     Calendar calendar = Calendar.getInstance();

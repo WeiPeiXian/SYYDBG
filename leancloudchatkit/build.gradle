@@ -39,6 +39,7 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'de.greenrobot:eventbus:2.4.0'
+
 }
 
 //apply from: '../maven_push.gradle'

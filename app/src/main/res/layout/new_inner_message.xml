@@ -1,69 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
-    <LinearLayout
-        android:id="@+id/layout1"
-        android:layout_width="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/weixin_bgcolor"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/title_blue">
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/back"
+            android:layout_centerVertical="true"/>
 
         <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
             android:text="新信息"
             android:textColor="@color/words"
-            android:textSize="25dip" />
+            android:textSize="25dp"
+            />
 
-    </LinearLayout>
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:background="@color/inputwords"/>
+    </RelativeLayout>
 
-    <EditText
-
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/background2"
-        android:drawableRight="@mipmap/add"
-        android:id="@+id/research2"
-        android:drawablePadding="10dp"
-        android:hint="   接收者"
-        android:singleLine="true"
-        android:textSize="20dp" />
-    />
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="400dp"
-        android:background="@color/background2"
-        android:orientation="horizontal">
+        android:layout_height="@dimen/height_11_160"
+        android:background="@color/background2">
+
+        <TextView
+            android:id="@+id/tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="接收者:"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/input1"
-            android:layout_width="280dp"
+            android:id="@+id/sendperson"
+            android:layout_toLeftOf="@+id/chat_person_btn"
+            android:layout_toRightOf="@+id/tx"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginLeft="30dip"
-            android:layout_marginTop="10dip"
-            android:background="@drawable/shape"
-            android:hint="  输入内容"
-            android:textSize="15dp" />
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/send1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@color/background2"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:text="发送"
-            android:textColor="#1296db"
-            android:textSize="20dp"/>
+        <ImageButton
+            android:id="@+id/chat_person_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/width_3_160"
+            android:background="@mipmap/add2" />
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/chat_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:dividerHeight="@null"
+        android:scrollbars="none"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/height_1_160"
+        android:paddingTop="@dimen/height_1_160">
 
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <EditText
+                android:id="@+id/chat_content"
+                style="@style/lcim_input_bar_edittext_style"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/send"
+                style="@style/lcim_input_bar_button_style"
+                android:src="@drawable/lcim_bottom_bar_send_button_bg"
+                android:visibility="visible"/>
+        </FrameLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -19,7 +19,6 @@ public class SmsService extends Service {
     }
     @Override
     public void onCreate() {
-        //在这里启动
         ContentResolver resolver = getContentResolver();
         mObserver = new SmsObserver(resolver, new SmsHandler(this));
         resolver.registerContentObserver(Uri.parse("content://sms"), true, mObserver);

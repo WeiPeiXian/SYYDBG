@@ -233,24 +233,21 @@ public class LCIMConversationFragment extends Fragment {
     }
   }
 
-  public void onEvent(final LCIMMessageUpdateEvent event) {
-    if (null != imConversation && null != event &&
-      null != event.message && imConversation.getConversationId().equals(event.message.getConversationId())) {
-      AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-      builder.setTitle("操作").setItems(new String[]{"删除", "修改消息内容"}, new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-          if (0 == which) {
-            recallMessage(event.message);
-          } else if (1 == which) {
-            showUpdateMessageDialog(event.message);
-          }
-        }
-      });
-
-      builder.create().show();
-    }
-  }
+//  public void onEvent(final LCIMMessageUpdateEvent event) {
+//    if (null != imConversation && null != event &&
+//      null != event.message && imConversation.getConversationId().equals(event.message.getConversationId())) {
+//      AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//      builder.setTitle("操作").setItems(new String[]{"删除"}, new DialogInterface.OnClickListener() {
+//        @Override
+//        public void onClick(DialogInterface dialog, int which) {
+//          if (0 == which) {
+//            recallMessage(event.message);
+//          }
+//        }
+//      });
+//      builder.create().show();
+//    }
+//  }
 
   public void onEvent(final LCIMMessageUpdatedEvent event) {
     if (null != imConversation && null != event &&
@@ -282,16 +279,19 @@ public class LCIMConversationFragment extends Fragment {
   }
 
   private void recallMessage(AVIMMessage message) {
-    imConversation.recallMessage(message, new AVIMMessageRecalledCallback() {
-      @Override
-      public void done(AVIMRecalledMessage recalledMessage, AVException e) {
-        if (null == e) {
-          itemAdapter.updateMessage(recalledMessage);
-        } else {
-          Toast.makeText(getActivity(), "删除失败", Toast.LENGTH_SHORT).show();
-        }
-      }
-    });
+    imConversation.removeFromLocalCache(message);
+
+    itemAdapter.notifyDataSetChanged();
+//    imConversation.recallMessage(message, new AVIMMessageRecalledCallback() {
+//      @Override
+//      public void done(AVIMRecalledMessage recalledMessage, AVException e) {
+//        if (null == e) {
+//          itemAdapter.updateMessage(recalledMessage);
+//        } else {
+//          Toast.makeText(getActivity(), "删除失败", Toast.LENGTH_SHORT).show();
+//        }
+//      }
+//    });
   }
 
   private void updateMessage(AVIMMessage message, String newContent) {

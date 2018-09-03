@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/head_title"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:background="@color/background2"
+                android:gravity="center"
+                android:paddingTop="10dip"
+                android:text="通讯录详情"
+                android:textColor="#be0e0a"
+                android:textSize="25dip"
+                android:textStyle="italic" />
+
+            <ImageButton
+                android:id="@+id/return3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="20dip"
+                android:layout_marginTop="15dip"
+                android:background="@color/background2"
+                android:onClick="ImageButtonClick1"
+                android:src="@mipmap/back" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/response_2"
+            android:layout_width="match_parent"
+            android:layout_height="376dp"
+            android:layout_below="@+id/head_title"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/Notice_title_2"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:text="联系人姓名："
+                android:textSize="25sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/phone_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Notice_title_2"
+                android:text="联系人姓名："
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/Notice_time_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="联系人电话："
+                android:textAllCaps="false"
+                android:textSize="25sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Notice_time_2"
+                android:text="联系人电话："
+                android:textSize="35sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#dfdfdf" />
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/change"
+        android:layout_width="145dp"
+        android:layout_height="59dp"
+        android:layout_alignParentTop="true"
+        android:text="修改联系人"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="145dp"
+        android:layout_height="59dp"
+        android:layout_alignParentRight="true"
+        android:text="删除联系人"
+        android:textStyle="italic" />
+</RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="140dp"
+            android:background="#dfdfdf" />
+    </RelativeLayout>
+</LinearLayout>

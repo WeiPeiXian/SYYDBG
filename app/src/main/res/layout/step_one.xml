@@ -43,22 +43,31 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_below="@id/re1">
         <EditText
+            android:id="@+id/editname"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@color/white"
             android:paddingLeft="20dp"
             android:textSize="20dp"
             android:hint="输入流程名称"
+
+            />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="流程类别"
             />
         <Spinner
             android:id="@+id/spinner1"
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
             android:layout_height="48dp"
             android:textSize="20dp"
             android:background="@color/white"

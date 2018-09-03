@@ -4,15 +4,9 @@ import android.content.Context;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.Theme;
-import com.example.weipeixian.MYYDBG.AppManager;
 import com.example.weipeixian.MYYDBG.R;
 
-/**
- * Date: 2016/9/2 9:59
- * Email: diyangxia@163.com
- * Author: diyangxia
- * Description: TODO
- */
+
 public class XmTools {
 
     public static void showExitDialog(final Context context) {

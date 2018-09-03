@@ -83,18 +83,18 @@ public class LCIMMessageHandler extends AVIMTypedMessageHandler<AVIMTypedMessage
     if (null != conversation && null != message) {
       final String notificationContent = message instanceof AVIMTextMessage ?
         ((AVIMTextMessage) message).getText() : context.getString(R.string.lcim_unspport_message_type);
-      LCIMProfileCache.getInstance().getCachedUser(message.getFrom(), new AVCallback<LCChatKitUser>() {
-        @Override
-        protected void internalDone0(LCChatKitUser userProfile, AVException e) {
-          if (e != null) {
-            LCIMLogUtils.logException(e);
-          } else if (null != userProfile) {
-            String title = userProfile.getUserName();
-            Intent intent = getIMNotificationIntent(conversation.getConversationId(), message.getFrom());
-            LCIMNotificationUtils.showNotification(context, title, notificationContent, null, intent);
-          }
-        }
-      });
+//      LCIMProfileCache.getInstance().getCachedUser(message.getFrom(), new AVCallback<LCChatKitUser>() {
+//        @Override
+//        protected void internalDone0(LCChatKitUser userProfile, AVException e) {
+//          if (e != null) {
+//            LCIMLogUtils.logException(e);
+//          } else if (null != userProfile) {
+//            String title = userProfile.getUserName();
+//            Intent intent = getIMNotificationIntent(conversation.getConversationId(), message.getFrom());
+//            LCIMNotificationUtils.showNotification(context, title, notificationContent, null, intent);
+//          }
+//        }
+//      });
     }
   }
 

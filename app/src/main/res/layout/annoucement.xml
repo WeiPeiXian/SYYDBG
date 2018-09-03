@@ -12,10 +12,21 @@
         android:id="@+id/layout"
         android:layout_alignParentTop="true">
 
+        <ImageButton
+            android:id="@+id/return1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dip"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/title_blue"
+            android:src="@mipmap/back" />
+
         <TextView
             android:layout_toLeftOf="@id/edit"
+            android:layout_toRightOf="@+id/return1"
             android:layout_width="fill_parent"
-            android:layout_height="60dp"
+            android:layout_height="?android:attr/actionBarSize"
             android:background="@color/title_blue"
             android:gravity="center"
             android:text="公 告"

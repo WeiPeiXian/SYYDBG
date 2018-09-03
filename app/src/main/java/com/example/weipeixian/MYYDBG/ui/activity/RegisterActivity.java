@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -31,6 +32,8 @@ import com.example.weipeixian.MYYDBG.BaseActivity;
 import com.example.weipeixian.MYYDBG.R;
 import com.example.weipeixian.MYYDBG.util.IdentifyCode;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cn.leancloud.chatkit.LCChatKit;
 
 public class RegisterActivity extends BaseActivity {
@@ -41,11 +44,19 @@ public class RegisterActivity extends BaseActivity {
     private Button mSignupBtn;
     private Handler mHandler;
     private ImageView mBackTV;
+    @BindView(R.id.back)
+    ImageButton back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
+        ButterKnife.bind(this);
+        back.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         mHandler = new Handler() {
             public void handleMessage(Message msg) {
                 switch (msg.what) {
@@ -57,19 +68,7 @@ public class RegisterActivity extends BaseActivity {
                         Toast.makeText(getApplicationContext(), "网络异常，请检查网络！",
                                 Toast.LENGTH_SHORT).show();
                         break;
-                    case 1002:
-                        Toast.makeText(getApplicationContext(), "用户已存在！",
-                                Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1003:
-                        Toast.makeText(getApplicationContext(), "注册失败，无权限",
-                                Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1004:
-                        Toast.makeText(getApplicationContext(),
-                                "注册失败: " + (String) msg.obj, Toast.LENGTH_SHORT)
-                                .show();
-                        break;
+
 
                     default:
                         break;
@@ -82,10 +81,8 @@ public class RegisterActivity extends BaseActivity {
         repeatPW = (EditText) findViewById(R.id.register_password2);
         mBackTV = (ImageView) findViewById(R.id.back);
         mBackTV.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
-                // TODO Auto-generated method stub
                 finish();
             }
         });
@@ -93,27 +90,23 @@ public class RegisterActivity extends BaseActivity {
 
             @Override
             public void onClick(View arg0) {
-                // TODO Auto-generated method stub
                 final String userName = mUsernameET.getText().toString().trim();
                 final String password = mPasswordET.getText().toString().trim();
                 final String repeat = repeatPW.getText().toString().trim();
-
                 if (TextUtils.isEmpty(userName)) {
                     Toast.makeText(getApplicationContext(), "请输入用户名",
                             Toast.LENGTH_SHORT).show();
                 } else if (TextUtils.isEmpty(password)) {
                     Toast.makeText(getApplicationContext(), "请输入密码",
                             Toast.LENGTH_SHORT).show();
-                }else if(password.equals(repeat)){
+                }else if(!password.equals(repeat)){
                     Toast.makeText(getApplicationContext(), "两次密码不一致",
                             Toast.LENGTH_SHORT).show();
                 }
                 else {
                     new Thread(new Runnable() {
-
                         @Override
                         public void run() {
-                            // TODO Auto-generated method stub
                             AVUser user = new AVUser();// 新建 AVUser 对象实例
                             user.setUsername(userName);// 设置用户名
                             user.setPassword(password);// 设置密码
@@ -125,7 +118,6 @@ public class RegisterActivity extends BaseActivity {
                                         mHandler.sendEmptyMessage(1000);
                                         login(userName,password);
                                     } else {
-                                        // 失败的原因可能有多种，常见的是用户名已经存在。
                                         Toast.makeText(RegisterActivity.this,"注册失败",Toast.LENGTH_SHORT);
                                     }
                                 }
@@ -141,6 +133,7 @@ public class RegisterActivity extends BaseActivity {
             @Override
             public void done(AVUser user, AVException e) {
                 if (null != e) {
+
                     return;
                 }
                 LCChatKit.getInstance().open(AVUser.getCurrentUser().getUsername(), new AVIMClientCallback() {

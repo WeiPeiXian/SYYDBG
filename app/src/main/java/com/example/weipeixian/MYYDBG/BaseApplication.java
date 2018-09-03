@@ -1,5 +1,6 @@
 package com.example.weipeixian.MYYDBG;
 import android.app.Application;
+import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
 //import com.easemob.chat.EMChat;
@@ -19,10 +20,18 @@ public class BaseApplication extends MultiDexApplication {
     private static final String TAG = BaseApplication.class.getSimpleName();
     private static BaseApplication mInstance = null;
     private boolean isInit = false;
+    private static Context context;
+
+    //返回
+    public static Context getContext(){
+        return context;
+    }
+
+
     @Override
     public void onCreate() {
         super.onCreate();
-        LCChatKit.getInstance().setProfileProvider(CustomUserProvider.getInstance());
+        context = getApplicationContext();
         AVOSCloud.setDebugLogEnabled(true);
         LCChatKit.getInstance().init(getApplicationContext(), APP_ID, APP_KEY);
         PushService.setDefaultPushCallback(this, open_page.class);
@@ -38,6 +47,7 @@ public class BaseApplication extends MultiDexApplication {
                 }
             }
         });
+
     }
 
 

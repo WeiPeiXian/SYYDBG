@@ -52,15 +52,11 @@ public final class LCChatKit {
     if (TextUtils.isEmpty(appKey)) {
       throw new IllegalArgumentException("appKey can not be empty!");
     }
-
     AVOSCloud.initialize(context.getApplicationContext(), appId, appKey);
-
     // 消息处理 handler
     AVIMMessageManager.registerMessageHandler(AVIMTypedMessage.class, new LCIMMessageHandler(context));
-
     // 与网络相关的 handler
     AVIMClient.setClientEventHandler(LCIMClientEventHandler.getInstance());
-
     // 和 Conversation 相关的事件的 handler
     AVIMMessageManager.setConversationEventHandler(LCIMConversationHandler.getInstance());
 

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/head_title"
+            android:layout_width="fill_parent"
+            android:background="@color/title_blue"
+            android:layout_height="?android:attr/actionBarSize">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textColor="@color/words"
+                android:text="通讯录详情"
+                android:textSize="25sp"
+                />
+            <ImageButton
+                android:id="@+id/return3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="15dip"
+                android:onClick="ImageButtonClick"
+                android:background="@mipmap/back" />
+            <ImageButton
+                android:id="@+id/new_phone_message"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dip"
+                android:background="@mipmap/add2"
+                android:onClick="ImageButtonClick"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/response_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/head_title"
+            android:orientation="vertical"
+            android:visibility="visible">
+            <TextView
+                android:id="@+id/phone_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@mipmap/a_person"
+                android:text="联系人姓名："
+                android:drawablePadding="10dp"
+                android:textSize="20dp"
+                android:paddingLeft="10dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dfdfdf" />
+
+            <TextView
+                android:id="@+id/phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/phone"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="10dp"
+                android:paddingLeft="10dp"
+                android:text="联系人电话："
+                android:textSize="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dfdfdf" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>

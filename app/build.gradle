@@ -41,14 +41,17 @@ dependencies {
     configurations {
         all*.exclude group: 'com.android.support', module: 'support-v13'
     }
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation project(":leancloudchatkit")
+
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha01'
     implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha01'
     implementation 'com.jakewharton:butterknife:8.0.1'
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support:support-v4:27.1.1'
     //noinspection GradleCompatible
@@ -56,12 +59,11 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.github.stuxuhai:jpinyin:1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.afollestad.material-dialogs:core:0.9.0.1'
     implementation ('cn.leancloud.android:avoscloud-sdk:v4.6.9')
-    implementation project(":leancloudchatkit")
+
     // 推送与实时聊天需要的包
     implementation ('cn.leancloud.android:avoscloud-push:v4.6.9@aar'){transitive = true}
     // LeanCloud 统计包
@@ -72,7 +74,5 @@ dependencies {
     implementation ('cn.leancloud.android:avoscloud-search:v4.6.9@aar')
     implementation 'de.greenrobot:eventbus:2.4.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
-
-
 
 }

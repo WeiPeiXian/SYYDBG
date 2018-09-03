@@ -26,6 +26,7 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<RVHol
         this.list = list;
         this.context = context;
     }
+
     @Override
     public RVHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(onCreateViewLayoutID(viewType), null);
@@ -38,7 +39,6 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<RVHol
     public void onViewRecycled(final RVHolder holder) {
         super.onViewRecycled(holder);
     }
-
     @Override
     public void onBindViewHolder(final RVHolder holder, final int position) {
         onBindViewHolder(holder.getViewHolder(), position);

@@ -7,11 +7,4 @@
             android:title="@string/home" />
 
     </group>
-    <!-- TODO STEP 8 - Add a menu item for settings_fragment -->
-    <!--<item-->
-        <!--android:id="@+id/settings_fragment"-->
-        <!--android:icon="@drawable/ic_settings"-->
-        <!--android:title="@string/settings" />-->
-
-    <!-- END TODO STEP 8 -->
 </menu>

@@ -67,16 +67,16 @@ public class LCIMProfileCache {
    * @param id
    * @param callback
    */
-  public synchronized void getCachedUser(final String id, final AVCallback<LCChatKitUser> callback) {
-    getCachedUsers(Arrays.asList(id), new AVCallback<List<LCChatKitUser>>() {
-      @Override
-      protected void internalDone0(List<LCChatKitUser> lcimUserProfiles, AVException e) {
-        LCChatKitUser LCChatKitUser =
-          (null != lcimUserProfiles && !lcimUserProfiles.isEmpty() ? lcimUserProfiles.get(0) : null);
-        callback.internalDone(LCChatKitUser, e);
-      }
-    });
-  }
+//  public synchronized void getCachedUser(final String id, final AVCallback<LCChatKitUser> callback) {
+//    getCachedUsers(Arrays.asList(id), new AVCallback<List<LCChatKitUser>>() {
+//      @Override
+//      protected void internalDone0(List<LCChatKitUser> lcimUserProfiles, AVException e) {
+//        LCChatKitUser LCChatKitUser =
+//          (null != lcimUserProfiles && !lcimUserProfiles.isEmpty() ? lcimUserProfiles.get(0) : null);
+//        callback.internalDone(LCChatKitUser, e);
+//      }
+//    });
+//  }
 
   /**
    * 获取多个用户的信息
@@ -85,50 +85,49 @@ public class LCIMProfileCache {
    * @param idList
    * @param callback
    */
-  public synchronized void getCachedUsers(List<String> idList, final AVCallback<List<LCChatKitUser>> callback) {
-    if (null != callback) {
-      if (null == idList || idList.isEmpty()) {
-        callback.internalDone(null, new AVException(new Throwable("idList is empty!")));
-      } else {
-        final List<LCChatKitUser> profileList = new ArrayList<LCChatKitUser>();
-        final List<String> unCachedIdList = new ArrayList<String>();
-
-        for (String id : idList) {
-          if (userMap.containsKey(id)) {
-            profileList.add(userMap.get(id));
-          } else {
-            unCachedIdList.add(id);
-          }
-        }
-
-        if (unCachedIdList.isEmpty()) {
-          callback.internalDone(profileList, null);
-        } else if (null != profileDBHelper) {
-          profileDBHelper.getData(idList, new AVCallback<List<String>>() {
-            @Override
-            protected void internalDone0(List<String> strings, AVException e) {
-              if (null != strings && !strings.isEmpty() && strings.size() == unCachedIdList.size()) {
-                List<LCChatKitUser> profileList = new ArrayList<LCChatKitUser>();
-                for (String data : strings) {
-                  LCChatKitUser userProfile = getUserProfileFromJson(data);
-                  if (null != userProfile) {
-                    userMap.put(userProfile.getUserId(), userProfile);
-                    profileList.add(userProfile);
-                  }
-                }
-                callback.internalDone(profileList, null);
-              } else {
-                getProfilesFromProvider(unCachedIdList, profileList, callback);
-              }
-            }
-          });
-        } else {
-          getProfilesFromProvider(unCachedIdList, profileList, callback);
-        }
-      }
-    }
-  }
-
+//  public synchronized void getCachedUsers(List<String> idList, final AVCallback<List<LCChatKitUser>> callback) {
+//    if (null != callback) {
+//      if (null == idList || idList.isEmpty()) {
+//        callback.internalDone(null, new AVException(new Throwable("idList is empty!")));
+//      } else {
+//        final List<LCChatKitUser> profileList = new ArrayList<LCChatKitUser>();
+//        final List<String> unCachedIdList = new ArrayList<String>();
+//
+//        for (String id : idList) {
+//          if (userMap.containsKey(id)) {
+//            profileList.add(userMap.get(id));
+//          } else {
+//            unCachedIdList.add(id);
+//          }
+//        }
+//
+//        if (unCachedIdList.isEmpty()) {
+//          callback.internalDone(profileList, null);
+//        } else if (null != profileDBHelper) {
+//          profileDBHelper.getData(idList, new AVCallback<List<String>>() {
+//            @Override
+//            protected void internalDone0(List<String> strings, AVException e) {
+//              if (null != strings && !strings.isEmpty() && strings.size() == unCachedIdList.size()) {
+//                List<LCChatKitUser> profileList = new ArrayList<LCChatKitUser>();
+//                for (String data : strings) {
+//                  LCChatKitUser userProfile = getUserProfileFromJson(data);
+//                  if (null != userProfile) {
+//                    userMap.put(userProfile.getUserId(), userProfile);
+//                    profileList.add(userProfile);
+//                  }
+//                }
+//                callback.internalDone(profileList, null);
+//              } else {
+//                getProfilesFromProvider(unCachedIdList, profileList, callback);
+//              }
+//            }
+//          });
+//        } else {
+//          getProfilesFromProvider(unCachedIdList, profileList, callback);
+//        }
+//      }
+//    }
+//  }
   /**
    * 根据 id 通过开发者设置的回调获取用户信息
    *
@@ -162,15 +161,15 @@ public class LCIMProfileCache {
    * @param id
    * @param callback
    */
-  public void getUserName(String id, final AVCallback<String> callback) {
-    getCachedUser(id, new AVCallback<LCChatKitUser>() {
-      @Override
-      protected void internalDone0(LCChatKitUser userProfile, AVException e) {
-        String userName = (null != userProfile ? userProfile.getUserName() : null);
-        callback.internalDone(userName, e);
-      }
-    });
-  }
+//  public void getUserName(String id, final AVCallback<String> callback) {
+//    getCachedUser(id, new AVCallback<LCChatKitUser>() {
+//      @Override
+//      protected void internalDone0(LCChatKitUser userProfile, AVException e) {
+//        String userName = (null != userProfile ? userProfile.getUserName() : null);
+//        callback.internalDone(userName, e);
+//      }
+//    });
+//  }
 
   /**
    * 根据 id 获取用户头像
@@ -178,15 +177,15 @@ public class LCIMProfileCache {
    * @param id
    * @param callback
    */
-  public void getUserAvatar(String id, final AVCallback<String> callback) {
-    getCachedUser(id, new AVCallback<LCChatKitUser>() {
-      @Override
-      protected void internalDone0(LCChatKitUser userProfile, AVException e) {
-        String avatarUrl = (null != userProfile ? userProfile.getAvatarUrl() : null);
-        callback.internalDone(avatarUrl, e);
-      }
-    });
-  }
+//  public void getUserAvatar(String id, final AVCallback<String> callback) {
+//    getCachedUser(id, new AVCallback<LCChatKitUser>() {
+//      @Override
+//      protected void internalDone0(LCChatKitUser userProfile, AVException e) {
+//        String avatarUrl = (null != userProfile ? userProfile.getAvatarUrl() : null);
+//        callback.internalDone(avatarUrl, e);
+//      }
+//    });
+//  }
 
   /**
    * 内存中是否包相关 LCChatKitUser 的信息
